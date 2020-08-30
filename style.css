@@ -3,5 +3,7 @@
 
 }
 .border_transition {
-    border: 2px solid lightgrey;
+    margin: 3px;
+    padding: 3px;
+    border: 1px solid lightgrey;
 }
