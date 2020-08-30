@@ -1,9 +1,41 @@
+* {
+    text-align: center;
+}
+
 .border_big {
     border: 2px solid lightgrey;
-
 }
+
 .border_transition {
     margin: 3px;
     padding: 3px;
     border: 1px solid lightgrey;
+}
+
+.border_properties {
+    border: 1px solid lightgrey;
+    
+
+}
+
+.property_names {
+    border: 1px solid lightgrey;
+    display: inline-block;
+    text-align: left !important;
+}
+
+.property_values {
+    border: 1px solid lightgrey;
+    display: inline-block;
+    text-align: left !important;
+}
+
+.demo_border {
+    border: 1px solid lightgrey;
+}
+
+.demo {
+    border: 1px solid lightgrey;
+    background-color: red;
+
 }

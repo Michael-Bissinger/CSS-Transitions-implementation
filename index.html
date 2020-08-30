@@ -13,14 +13,58 @@
       
       <div class="border_transition">
       <h2>Transition 1</h2>
+        <div class="border_properties">
+          <div class="property_names">
+            <p>transition-property:</p>
+            <p>transition-duration:</p>
+            <p>transition-timing-function:</p>
+            <p>transition-delay:</p>
+          </div>
+          <div class="property_values">
+            <p><select id="property_trans1">
+              <option>margin-right</option>
+              <option>margin-left</option>
+              <option>all</option>
+              <option>none</option>
+            </select></p>
+            <p><form>
+              <label for="duration">(in ms)
+                <input type="text" id="duration_trans1" name="duration">
+              </label>
+            </form></p>
+            <p><select id="timing_trans1">
+              <option>linear</option>
+              <option>ease-in</option>
+              <option>ease-out</option>
+              <option>ease-in-out</option>
+            </select></p>
+            <p><form>
+              <label for="duration">(in ms)
+                <input type="text" id="delay_trans1" name="delay">
+              </label>
+            </form></p>
+          </div>
 
+
+        </div>
+      <button type="button" id="button_apply_1">Anwenden</button>
       <button type="button" id="button_load_1">Laden</button>
       <button type="button" id="button_save_1">Speichern</button>  
+      
+      <div class="demo_border">
+        <p>DEMO:</p>
+        <div class="demo">
+          <p>Fahre mit der Maus hierher, um die Transition zu testen! (Erst "Anwenden" drücken)</p>
+        </div>
+
       </div>
+
+    </div>
       
       <div class="border_transition">
       <h2>Transition 2</h2>
-      
+
+      <button type="button" id="button_apply_2">Anwenden</button>      
       <button type="button" id="button_load_2">Laden</button>
       <button type="button" id="button_save_3">Speichern</button>        
       </div>
@@ -28,6 +72,7 @@
       <div class="border_transition">
       <h2>Transition 3</h2>
 
+      <button type="button" id="button_apply_3">Anwenden</button>
       <button type="button" id="button_load_3">Laden</button>
       <button type="button" id="button_save_3">Speichern</button>
       </div>
