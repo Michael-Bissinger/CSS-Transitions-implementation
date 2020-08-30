@@ -1,4 +1,7 @@
-.rand {
+.border_big {
     border: 2px solid lightgrey;
 
+}
+.border_transition {
+    border: 2px solid lightgrey;
 }
