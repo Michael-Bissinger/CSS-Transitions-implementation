@@ -14,8 +14,6 @@
 
 .border_properties {
     border: 1px solid lightgrey;
-    
-
 }
 
 .property_names {
@@ -34,8 +32,26 @@
     border: 1px solid lightgrey;
 }
 
-.demo {
-    border: 1px solid lightgrey;
-    background-color: red;
 
+.demo {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid lightgrey;
+
+
+    background-color: red;
+    /*transition-duration: 1000ms;*/
+    /*transition-property: all;*/
+    /*transition-duration: 500ms;*/
+    /*transition-timing-function: ease;*/
+
+    
+}
+
+.demo:hover {
+    background-color: blue;
+    width: 500px;
+    /*transform: rotate(45deg);*/
 }
