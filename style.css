@@ -36,6 +36,7 @@
 .demo {
     width: 200px;
     height: 100px;
+    /*margin: auto;*/
     margin: auto;
     padding: 10px;
     border: 1px solid lightgrey;
@@ -53,5 +54,7 @@
 .demo:hover {
     background-color: blue;
     width: 500px;
+    /*margin-right: 20em;
+    margin-left: 20em;
     /*transform: rotate(45deg);*/
 }
