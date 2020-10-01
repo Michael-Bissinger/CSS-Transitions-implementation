@@ -12,8 +12,8 @@
               var property_user = option_prop_trans.options[option_prop_trans.selectedIndex].text;
               alert("PROPERTY: " + property_user);    
 
-              /* Duration */ /* credits to https://stackoverflow.com/questions/17943035/how-to-get-label-text-value-form-a-html-page */
-              var duration_user = document.getElementById("duration_trans1").htmlFor;
+              /* Duration */
+              var duration_user = document.getElementById("duration_trans1").value;
               alert("DURATION: " + duration_user);  
               
               /* Timing */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
@@ -22,14 +22,13 @@
               alert("TIMING: " + timing_user);
               
               /* Delay */
-                  /* ... TODO ... */
-              var delay_user = "todo";
+              var delay_user = document.getElementById("delay_trans1").value;
               alert("DELAY: " + delay_user);
               
               /* --- Put style --- */
               /* Property */
               
-              
+
 
               /* Duration */
               
