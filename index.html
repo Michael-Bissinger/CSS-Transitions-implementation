@@ -6,36 +6,8 @@
     <link rel="stylesheet" href="style.css" type='text/css'>
     <link rel="shortcut icon" type="image/x-icon" href="./transition_favicon.ico">
     <script type="text/javascript" src="applybtn.js"></script>
+    <script type="text/javascript" src="spa_navigation.js"></script>
     <title>CSS-Transition-Studio</title>
-    
-    <script>
-      let pages = ["transition1", "transition2", "transition3"];
-      
-      function changeNavigation(page) {
-        for (let p of pages) {
-				    let el = document.getElementById(p)
-				  if (p === page)
-					  el.classList.remove("hidden")
-				  else
-					  el.classList.add("hidden")
-			}
-      }
-
-      window.addEventListener("hashchange", event => {
-			changeNavigation(window.location.hash.replace("#",""));
-		})
-    </script>
-
-<style>
-  .hidden {
-    display: none;
-  }
-
-  header a {
-    margin-right: 0.5em;
-  }
-</style>
-
 
   </head>
   <body>
@@ -48,6 +20,12 @@
 
 
     <h1>Transition Manager</h1>
+
+    <section id="welcome">
+      <h2>Willkommen beim CSS Transition Manager</h2>
+      <p>Dieses Tool ermöglicht es Ihnen CSS Transitions zu testen und in einer Datenbank zu speichern. Sie finden die neueste Version auf https://github.com/Michael-Bissinger/CSS-Transitions-implementation/releases</p>
+    </section>
+
     <section id="transition1">
       <div class="border_big">
       

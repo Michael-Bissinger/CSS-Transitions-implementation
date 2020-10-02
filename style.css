@@ -62,8 +62,9 @@
     /*transform: rotate(45deg);*/
 }
 
-/* ------- SinglePageApplication Style ------- */
+/* ------- SINGLEPAGEAPPLICATION STYLE ------- */
 
 .hidden {
-    display: none;
+    display: none; /* Items who are not in navigation are not displayed */
 }
+
