@@ -11,11 +11,6 @@
       }
 
       window.addEventListener("hashchange", event => {
-      let p = window.location.hash.replace("#","")
-/*        if(p === "") {
-        p = "welcome"
-      } */ /*gelöst durch eventlistener on load */
-        
       changeNavigation(window.location.hash.replace("#",""));
     })
     
