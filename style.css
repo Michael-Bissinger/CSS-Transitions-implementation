@@ -1,3 +1,5 @@
+/* ------- STYLE ------- */
+
 * {
     text-align: center;
 }
@@ -32,6 +34,7 @@
     border: 1px solid lightgrey;
 }
 
+/* ------- TRANSITION ------- */
 
 .demo {
     width: 200px;
@@ -57,4 +60,10 @@
     /*margin-right: 20em;
     margin-left: 20em;
     /*transform: rotate(45deg);*/
+}
+
+/* ------- SinglePageApplication Style ------- */
+
+.hidden {
+    display: none;
 }

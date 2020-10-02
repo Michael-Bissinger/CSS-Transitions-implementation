@@ -9,16 +9,32 @@
     <title>CSS-Transition-Studio</title>
     
     <script>
-      let pages = ["#transition1", "#transition2", "#transition3", "#compare"];
+      let pages = ["transition1", "transition2", "transition3"];
       
-      function navigation(page) {
-
+      function changeNavigation(page) {
+        for (let p of pages) {
+				    let el = document.getElementById(p)
+				  if (p === page)
+					  el.classList.remove("hidden")
+				  else
+					  el.classList.add("hidden")
+			}
       }
 
       window.addEventListener("hashchange", event => {
-			changeNavigation();
+			changeNavigation(window.location.hash.replace("#",""));
 		})
     </script>
+
+<style>
+  .hidden {
+    display: none;
+  }
+
+  header a {
+    margin-right: 0.5em;
+  }
+</style>
 
 
   </head>
