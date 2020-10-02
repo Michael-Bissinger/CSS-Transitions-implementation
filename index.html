@@ -7,6 +7,20 @@
     <link rel="shortcut icon" type="image/x-icon" href="./transition_favicon.ico">
     <script type="text/javascript" src="applybtn.js"></script>
     <title>CSS-Transition-Studio</title>
+    
+    <script>
+      let pages = ["#transition1", "#transition2", "#transition3", "#compare"];
+      
+      function navigation(page) {
+
+      }
+
+      window.addEventListener("hashchange", event => {
+			changeNavigation();
+		})
+    </script>
+
+
   </head>
   <body>
 
@@ -14,80 +28,177 @@
         <a href="#transition1">Transition 1</a>
         <a href="#transition2">Transition 2</a>
         <a href="#transition3">Transition 3</a>
-        <a href="#compare">Vergleich</a>
       </header>
 
 
     <h1>Transition Manager</h1>
-
-    <div class="border_big">
+    <section id="transition1">
+      <div class="border_big">
       
-      <div class="border_transition">
-      <h2>Transition 1</h2>
-        <div class="border_properties">
-          <div class="property_names">
-            <p>transition-property:</p>
-            <p>transition-duration:</p>
-            <p>transition-timing-function:</p>
-            <p>transition-delay:</p>
-          </div>
-          <div class="property_values">
-            <p><select id="property_trans1">
-              <option>margin-right</option>
-              <option>margin-left</option>
-              <option>all</option>
-              <option>none</option>
-            </select></p>
-            <p><form>
-              <label for="duration">(in ms)
-                <input type="number" id="duration_trans1" name="duration">
-              </label>
-            </form></p>
-            <p><select id="timing_trans1">
-              <option>linear</option>
-              <option>ease-in</option>
-              <option>ease-out</option>
-              <option>ease-in-out</option>
-            </select></p>
-            <p><form>
-              <label for="duration">(in ms)
-                <input type="text" id="delay_trans1" name="delay">
-              </label>
-            </form></p>
-          </div>
-
-
-        </div>
-      <button type="button" id="button_apply_1">Anwenden</button>
-      <button type="button" id="button_load_1">Laden</button>
-      <button type="button" id="button_save_1">Speichern</button>  
       
-      <div class="demo_border">
-        <p>DEMO Transition 1:</p>
-        <div class="demo" style="transition-duration: 1000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms">
-          <p>Fahre mit der Maus hierher, um die Transition zu testen! (Erst "Anwenden" drücken)</p>
+        <div class="border_transition">
+        <h2>Transition 1</h2>
+          <div class="border_properties">
+            <div class="property_names">
+              <p>transition-property:</p>
+              <p>transition-duration:</p>
+              <p>transition-timing-function:</p>
+              <p>transition-delay:</p>
+            </div>
+            <div class="property_values">
+              <p><select id="property_trans1">
+                <option>margin-right</option>
+                <option>margin-left</option>
+                <option>all</option>
+                <option>none</option>
+              </select></p>
+              <p><form>
+                <label for="duration">(in ms)
+                  <input type="number" id="duration_trans1" name="duration">
+                </label>
+              </form></p>
+              <p><select id="timing_trans1">
+                <option>linear</option>
+                <option>ease-in</option>
+                <option>ease-out</option>
+                <option>ease-in-out</option>
+              </select></p>
+              <p><form>
+                <label for="duration">(in ms)
+                  <input type="text" id="delay_trans1" name="delay">
+                </label>
+              </form></p>
+            </div>
+
+
+          </div>
+        <button type="button" id="button_apply_1">Anwenden</button>
+        <button type="button" id="button_load_1">Laden</button>
+        <button type="button" id="button_save_1">Speichern</button>  
+      
+        <div class="demo_border">
+          <p>DEMO Transition 1:</p>
+          <div id="demo_trans1" class="demo" style="transition-duration: 1000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms">
+            <p>Fahre mit der Maus hierher, um die Transition zu testen! (Erst "Anwenden" drücken)</p>
+          </div>
+
         </div>
 
       </div>
-
-    </div>
+    </section>
  
+    <section id="transition2">
+      <div class="border_big">
+      
+      
+        <div class="border_transition">
+        <h2>Transition 2</h2>
+          <div class="border_properties">
+            <div class="property_names">
+              <p>transition-property:</p>
+              <p>transition-duration:</p>
+              <p>transition-timing-function:</p>
+              <p>transition-delay:</p>
+            </div>
+            <div class="property_values">
+              <p><select id="property_trans2">
+                <option>margin-right</option>
+                <option>margin-left</option>
+                <option>all</option>
+                <option>none</option>
+              </select></p>
+              <p><form>
+                <label for="duration">(in ms)
+                  <input type="number" id="duration_trans2" name="duration">
+                </label>
+              </form></p>
+              <p><select id="timing_trans2">
+                <option>linear</option>
+                <option>ease-in</option>
+                <option>ease-out</option>
+                <option>ease-in-out</option>
+              </select></p>
+              <p><form>
+                <label for="duration">(in ms)
+                  <input type="text" id="delay_trans2" name="delay">
+                </label>
+              </form></p>
+            </div>
 
-      <div class="border_transition">
-      <h2>Transition 2</h2>
 
-      <button type="button" id="button_apply_2">Anwenden</button>      
-      <button type="button" id="button_load_2">Laden</button>
-      <button type="button" id="button_save_3">Speichern</button>        
+          </div>
+        <button type="button" id="button_apply_2">Anwenden</button>
+        <button type="button" id="button_load_2">Laden</button>
+        <button type="button" id="button_save_2">Speichern</button>  
+      
+        <div class="demo_border">
+          <p>DEMO Transition 2:</p>
+          <div id="demo_trans2" class="demo" style="transition-duration: 1000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms">
+            <p>Fahre mit der Maus hierher, um die Transition zu testen! (Erst "Anwenden" drücken)</p>
+          </div>
+
+        </div>
+
       </div>
+    </section>
 
-      <div class="border_transition">
-      <h2>Transition 3</h2>
+    <section id="transition3">
+      <div class="border_big">
+      
+      
+        <div class="border_transition">
+        <h2>Transition 3</h2>
+          <div class="border_properties">
+            <div class="property_names">
+              <p>transition-property:</p>
+              <p>transition-duration:</p>
+              <p>transition-timing-function:</p>
+              <p>transition-delay:</p>
+            </div>
+            <div class="property_values">
+              <p><select id="property_trans3">
+                <option>margin-right</option>
+                <option>margin-left</option>
+                <option>all</option>
+                <option>none</option>
+              </select></p>
+              <p><form>
+                <label for="duration">(in ms)
+                  <input type="number" id="duration_trans3" name="duration">
+                </label>
+              </form></p>
+              <p><select id="timing_trans3">
+                <option>linear</option>
+                <option>ease-in</option>
+                <option>ease-out</option>
+                <option>ease-in-out</option>
+              </select></p>
+              <p><form>
+                <label for="duration">(in ms)
+                  <input type="text" id="delay_trans3" name="delay">
+                </label>
+              </form></p>
+            </div>
 
-      <button type="button" id="button_apply_3">Anwenden</button>
-      <button type="button" id="button_load_3">Laden</button>
-      <button type="button" id="button_save_3">Speichern</button>
+
+          </div>
+        <button type="button" id="button_apply_3">Anwenden</button>
+        <button type="button" id="button_load_3">Laden</button>
+        <button type="button" id="button_save_3">Speichern</button>  
+      
+        <div class="demo_border">
+          <p>DEMO Transition 3:</p>
+          <div id="demo_trans3" class="demo" style="transition-duration: 1000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms">
+            <p>Fahre mit der Maus hierher, um die Transition zu testen! (Erst "Anwenden" drücken)</p>
+          </div>
+
+        </div>
+
       </div>
-    </div> 
+    </section>
+
+
+
+
   </body>
 </html>
