@@ -1,7 +1,7 @@
 
 /* window.onload sorgt dafür, dass das Script erst ausgeführt wird, wenn die Seite geladen wurde. Sonst existieren die IDs nämlich noch nicht */
         window.onload = function(){ 
-          
+
           document.getElementById("button_apply_1").addEventListener("click", event => {
             applyStyle("1");
           })
@@ -13,8 +13,10 @@
           })
 
           function applyStyle(trans_number) {
-            alert("Button " + trans_number + " clicked!")  
-            
+            alert("Button " + trans_number + " clicked!")
+
+      
+
             /* --- Read settings --- */
               /* Property */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
               var option_prop_trans = document.getElementById("property_trans1");
@@ -35,11 +37,28 @@
               alert("DELAY: " + delay_user);
               
               /* --- Put style --- */
+              /* --- settransitiongoal --- */
+              var transitionelement = document.getElementById("demo_trans" + trans_number);
+              alert(transitionelement);
+              console.log(transitionelement);              
+
+
+              /*transitionelement.setAttribute("style", "transition-duration: 8000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms;");
+              transitionelement.style.color = "green";
+              */
+              document.getElementById("button_apply_" + trans_number).setAttribute("style", "transition-duration: 8000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms;");
+              document.getElementById("button_apply_" + trans_number).style.color = "green";
+
+              /*"transition-duration: 1000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms" */
+
+
+              transitionelement.setAttribute("style", "transition-duration: 8000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms;");
               /* Property */
+              /*transitionelement.style.transition-property = "all";
               
 
-
               /* Duration */
+              /*transitionelement.style.transition-duration = "8000ms";
               
               /* Timing */
               
