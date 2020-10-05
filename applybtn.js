@@ -17,21 +17,21 @@
 
             /* --- Read settings --- */
               /* GET Property */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
-              var option_prop_trans = document.getElementById("property_trans1");
+              var option_prop_trans = document.getElementById("property_trans" + trans_number);
               var property_user = option_prop_trans.options[option_prop_trans.selectedIndex].text;
               alert("PROPERTY: " + property_user);    
 
               /* GET Duration */
-              var duration_user = document.getElementById("duration_trans1").value;
+              var duration_user = document.getElementById("duration_trans" + trans_number).value;
               alert("DURATION: " + duration_user);  
               
               /* GET Timing */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
-              var option_time_trans = document.getElementById("timing_trans1");
+              var option_time_trans = document.getElementById("timing_trans" + trans_number);
               var timing_user = option_time_trans.options[option_time_trans.selectedIndex].text;
               alert("TIMING: " + timing_user);
               
               /* GET Delay */
-              var delay_user = document.getElementById("delay_trans1").value;
+              var delay_user = document.getElementById("delay_trans" + trans_number).value;
               alert("DELAY: " + delay_user);
               
               /* --- Put style --- */
