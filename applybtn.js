@@ -52,7 +52,9 @@
               /*"transition-duration: 1000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms" */
 
 
-              transitionelement.setAttribute("style", "transition-duration: 8000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms;");
+              /*transitionelement.setAttribute("style", "transition-duration: 8000ms; transition-property: all; transition-timing-function: ease-in-out; transition-delay: 100ms;");*/
+              transitionelement.setAttribute("style", "transition-duration: " + duration_user + "ms; transition-property: " + property_user + "; transition-timing-function: " + timing_user + "; transition-delay: " + delay_user + "ms;");
+
               /* Property */
               /*transitionelement.style.transition-property = "all";
               
