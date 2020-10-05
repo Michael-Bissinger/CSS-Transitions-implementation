@@ -1,12 +1,24 @@
 
 /* window.onload sorgt dafür, dass das Script erst ausgeführt wird, wenn die Seite geladen wurde. Sonst existieren die IDs nämlich noch nicht */
         window.onload = function(){ 
-          document.getElementById("button_apply_1").addEventListener("click", applyStyle);
+          /*document.getElementById("button_apply_1").addEventListener("click", applyStyle);
           document.getElementById("button_apply_2").addEventListener("click", applyStyle);
-          document.getElementById("button_apply_3").addEventListener("click", applyStyle);
+          document.getElementById("button_apply_3").addEventListener("click", applyStyle);*/
 
-          function applyStyle() {
-              /* --- Read settings --- */
+          document.getElementById("button_apply_1").addEventListener("click", event => {
+            applyStyle("1");
+          })
+          document.getElementById("button_apply_2").addEventListener("click", event => {
+            applyStyle("2");
+          })
+          document.getElementById("button_apply_3").addEventListener("click", event => {
+            applyStyle("3");
+          })
+
+          function applyStyle(trans_number) {
+            alert("Button " + trans_number + " clicked!")  
+            
+            /* --- Read settings --- */
               /* Property */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
               var option_prop_trans = document.getElementById("property_trans1");
               var property_user = option_prop_trans.options[option_prop_trans.selectedIndex].text;
