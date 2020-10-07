@@ -36,6 +36,18 @@
 
 /* ------- TRANSITION ------- */
 
+#demo_trans1 {
+    background-color: red;
+  }
+
+#demo_trans2 {
+    background-color: green;
+  }  
+
+#demo_trans3 {
+    background-color: blue;
+  }  
+
 .demo {
     width: 200px;
     height: 100px;
@@ -45,7 +57,7 @@
     border: 1px solid lightgrey;
 
 
-    background-color: red;
+    /*background-color: red;*/
     /*transition-duration: 1000ms;*/
     /*transition-property: all;*/
     /*transition-duration: 500ms;*/
@@ -54,8 +66,18 @@
     
 }
 
+#demo_trans1:hover {
+    background-color: yellow;
+  }
+#demo_trans2:hover {
+    background-color: yellow;
+  }
+#demo_trans3:hover {
+    background-color: yellow;
+  }  
+
 .demo:hover {
-    background-color: blue;
+    /*background-color: blue;*/
     width: 500px;
     transform: rotate(10deg);
     /*margin-right: 20em;
