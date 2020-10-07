@@ -37,15 +37,15 @@
 /* ------- TRANSITION ------- */
 
 #demo_trans1 {
-    background-color: red;
+    background-color: lightcoral;
   }
 
 #demo_trans2 {
-    background-color: green;
+    background-color: lightgreen;
   }  
 
 #demo_trans3 {
-    background-color: blue;
+    background-color: cornflowerblue;
   }  
 
 .demo {
@@ -67,13 +67,13 @@
 }
 
 #demo_trans1:hover {
-    background-color: yellow;
+    background-color: lightyellow;
   }
 #demo_trans2:hover {
-    background-color: yellow;
+    background-color: lightyellow;
   }
 #demo_trans3:hover {
-    background-color: yellow;
+    background-color: lightyellow;
   }  
 
 .demo:hover {
