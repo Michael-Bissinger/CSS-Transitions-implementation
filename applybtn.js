@@ -36,7 +36,7 @@
               
               /* --- Put style --- */
               /* --- settransitiongoal --- */
-              var transitionelement = document.getElementById("demo_trans" + trans_number);
+              let transitionelement = document.getElementById("demo_trans" + trans_number);
               alert(transitionelement);
               console.log(transitionelement);              
 
