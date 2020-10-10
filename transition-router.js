@@ -29,45 +29,59 @@ router.get('/', (req, res) => {
 	.then(data => res
 		.status(200)
 		.type("json")
-		.send(data))
+		.send(data.map(el => el.transitionnummer)))
 	.catch(err => res.set.send(err))
 })
 
-router.get('/:kontonummer/', (req, res) => {
-	const kontonummer = req.params.kontonummer
+/* Nutzer fragt Transitiondaten ab */
 
-	Konto.findOne({ "kontonummer": kontonummer })
-		.then(konto => res.status(200).type("json").send(konto))
-		.catch(err => res.sendStatus(404).send("Konto nicht gefunden"))
+router.get('/:transitionnummer/', (req, res) => {
+	const transitionnummer = req.params.transitionnummer
+
+	Transitionsetup.findOne({ "transitionnummer": transitionnummer })
+		.then(transition => res.status(200).type("json").send(transition))
+		.catch(err => res.sendStatus(404).send("Transition nicht gefunden"))
 })
 
-router.get('/:kontonummer/kontostand/', (req, res) => {
-	const kontonummer = req.params.kontonummer
+/* WIRD NICHT GEBRAUCHT!!!
 
-	Konto.findOne({ "kontonummer": kontonummer })
+router.get('/:transitionnummer/property/', (req, res) => {
+	const transitionnummer = req.params.transitionnummer
+
+	Konto.findOne({ "transitionnummer": transitionnummer })
 		.then(konto => res.send("" + konto.kontostand).end())
-		.catch(err => res.sendStatus(404).send("Konto nicht gefunden").end())
+		.catch(err => res.sendStatus(404).send("Transition nicht gefunden").end())
 })
+ ... */
+
+/* Nutzer speichert Transitiondaten */
 
 router.post('/', (req, res) => {
-	const kontonummer = "" + Math.floor(10000000 * Math.random())
-	const konto = new Konto({
-		"kontonummer": kontonummer,
-		"name": req.body.Name,
-		"kontostand": 100
+	const transition = new Transitionsetup({
+		"transitionnummer": req.body.transnummer_html, /* TODO: noch anlegen */
+		"property": req.body.property_html, /* TODO: noch anlegen */
+		"duration": req.body.duration_html, /* TODO: noch anlegen */
+		"timing": req.body.timing_html, /* TODO: noch anlegen */
+		"property": req.body.property_html, /* TODO: noch anlegen */
+		"delay": req.body.delay_html /* TODO: noch anlegen */
 	})
 
-	konto.save()
-		.then(data => res.redirect("" + kontonummer + "/").end())
-		.catch(err => res.status(500).send("Hat nicht geklappt"))
+	transition.save()
+		.then(data => res.redirect("" + transitionnummer + "/").end())
+		.catch(err => res.status(500).send("Transition konnte nicht angelegt werden"))
 })
 
-router.delete('/:kontonummer', (req, res) => {
-	const kontonummer = req.params.kontonummer
+router.delete('/:transitionnummer', (req, res) => {
+	const transitionnummer = req.params.transitionnummer
 
-	Konto.deleteOne({ "kontonummer": kontonummer })
-		.then(konto => res.end("Ok"))
-		.catch(err => res.sendStatus(404).end("Konto nicht gefunden"))
+	Transitionsetup.deleteOne({ "transitionnummer": transitionnummer })
+		.then(transition => res.end("Ok"))
+		.catch(err => res.sendStatus(404).end("Transition nicht gefunden"))
 })
 
 module.exports = router
+
+/*
+
+konto = transition
+Konto = Transitionsetup
