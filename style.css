@@ -102,6 +102,7 @@ a:active {
     /*background-color: blue;*/
     width: 500px;
     transform: rotate(10deg);
+    border-radius: 50px;
     /*margin-right: 20em;
     margin-left: 20em;
     /*transform: rotate(45deg);*/
