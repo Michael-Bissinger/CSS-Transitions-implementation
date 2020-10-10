@@ -4,23 +4,33 @@ const mongoose = require('mongoose')
 
 const router = express.Router()
 
-const kontoSchema = new mongoose.Schema({
-	kontonummer: String,
-	name: String,
-	kontostand: Number
+/* mongoose mitteilen wie die daten aussehen mit denen man interagiert */
+
+const transitionSchema = new mongoose.Schema({
+	transitionnummer: Number,
+	property: String,
+	duration: Number,
+	timing: String,
+	delay: Number
 });
 
-const Konto = mongoose.model('Konto', kontoSchema);
+/* Modell erstellen */
+const Transitionsetup = mongoose.model('Transition', transitionSchema);
 
+/* zur db verbinden */
 mongoose.connect('mongodb://admin:secret@localhost/', { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', err => console.error('connection error:', err))
 db.once('open', () => console.log('Connected'))
 
+/* Hole alle Daten in der Datenbank ab */
 router.get('/', (req, res) => {
-	Konto.find()
-		.then(data => res.status(200).type("json").send(data.map(el => el.kontonummer)))
-		.catch(err => res.status(500).send(err))
+	Transitionsetup.find()
+	.then(data => res
+		.status(200)
+		.type("json")
+		.send(data))
+	.catch(err => res.set.send(err))
 })
 
 router.get('/:kontonummer/', (req, res) => {
