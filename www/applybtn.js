@@ -1,32 +1,22 @@
+const { link } = require("fs");
 
 /* window.onload sorgt dafür, dass das Script erst ausgeführt wird, wenn die Seite geladen wurde. Sonst existieren die IDs nämlich noch nicht */
         window.onload = function(){ 
 
-          /* Button Anwenden Klick */
-          document.getElementById("button_apply_1").addEventListener("click", event => {
-            applyStyle("1");
-          })
-          document.getElementById("button_apply_2").addEventListener("click", event => {
-            applyStyle("2");
-          })
-          document.getElementById("button_apply_3").addEventListener("click", event => {
-            applyStyle("3");
-          })
-
           /*ladeKonten(); ich verstehe nicht wieso */
 
-          /* Button Laden Klick */
+          /* Button Laden <<<Klick>>> */
           document.getElementById("button_load_1").addEventListener("click", event => {
-            ladeKonten("1");
+            zeigeKonto("1");
           })
           document.getElementById("button_load_1").addEventListener("click", event => {
-            ladeKonten("2");
+            zeigeKonto("2");
           })
           document.getElementById("button_load_1").addEventListener("click", event => {
-            ladeKonten("3");
+            zeigeKonto("3");
           })
 
-          /* --- Button Speichern Klick  ---*/
+          /* --- Button Speichern <<<Klick>>>  ---*/
           document.getElementById("button_save_1").addEventListener("click", event => {
             erzeugeKonto("1");
           })
@@ -36,8 +26,48 @@
           document.getElementById("button_save_3").addEventListener("click", event => {
             erzeugeKonto("1");
           })
-          
 
+          /* Button Anwenden <<<Klick>>> */
+          document.getElementById("button_apply_1").addEventListener("click", event => {
+            applyStyle("1");
+          })
+          document.getElementById("button_apply_2").addEventListener("click", event => {
+            applyStyle("2");
+          })
+          document.getElementById("button_apply_3").addEventListener("click", event => {
+            applyStyle("3");
+          })
+          
+          
+          
+          /* ------------- LADEN -------------- */
+         /* function ladeKonten() { /*TODO: Name noch ändern */
+         /*   fetch('transitions/')
+              .then(res => res.json())
+              .then(transitions => konten.forEach(zeigeKonto)
+            .catch(err => { })
+
+          } -> Wahrscheinlich nutzlose Funktion*/
+
+          function zeigeKonto(transitionnummer) {
+
+            /* Referenzen aufbauen */
+              var option_prop_trans = document.getElementById("property_trans" + trans_number);
+              var duration_user = document.getElementById("duration_trans" + trans_number);
+              var option_time_trans = document.getElementById("timing_trans" + trans_number);
+              var delay_user = document.getElementById("delay_trans" + trans_number);
+            /* Ausgabe */
+              option_prop_trans.text = `${property}`
+              duration_user.value = `${duration}`
+              option_time_trans.text = `${timing}`
+              delay_user.value = `${delay}`
+          }
+
+
+
+
+
+          /* ------------ ANWENDEN ------------ */
           function applyStyle(trans_number) {
             alert("Button " + trans_number + " clicked!")
 
