@@ -34,6 +34,14 @@
     border: 1px solid lightgrey;
 }
 
+.database_controls {
+  margin: auto;
+  width: 13%;
+  border: 3px solid grey;
+  padding: 10px;
+  border-radius: 50px;
+}
+
 a {
     color: black;
     border-radius: 25px;
