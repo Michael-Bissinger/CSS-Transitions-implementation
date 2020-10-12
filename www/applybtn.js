@@ -56,11 +56,25 @@ const { link } = require("fs");
               var duration_user = document.getElementById("duration_trans" + trans_number);
               var option_time_trans = document.getElementById("timing_trans" + trans_number);
               var delay_user = document.getElementById("delay_trans" + trans_number);
+            
             /* Ausgabe */
-              option_prop_trans.text = `${property}`
-              duration_user.value = `${duration}`
-              option_time_trans.text = `${timing}`
-              delay_user.value = `${delay}`
+              option_prop_trans.text = property /* `${property}` */
+              duration_user.value = duration /* `${duration}` */
+              option_time_trans.text = timing /* `${timing}` */
+              delay_user.value = delay /* `${delay}` */
+          }
+
+          zeigeFehler(fehlertext) {
+            const err_out = document.getElementById('error_out')
+            const div = document.createElement('div')
+            div.classList.add('alert')
+            div.classList.add('alert-danger')
+            div.setAttribute('role', 'alert')
+            div.innerText = fehlertext
+            err_out.appendChild(div)
+          
+            setTimeout(() => err_out.removeChild(div), 5000)
+
           }
 
 
