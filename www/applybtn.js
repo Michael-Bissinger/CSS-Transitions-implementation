@@ -2,6 +2,7 @@
 /* window.onload sorgt dafür, dass das Script erst ausgeführt wird, wenn die Seite geladen wurde. Sonst existieren die IDs nämlich noch nicht */
         window.onload = function(){ 
 
+          /* Button Anwenden Klick */
           document.getElementById("button_apply_1").addEventListener("click", event => {
             applyStyle("1");
           })
@@ -11,6 +12,31 @@
           document.getElementById("button_apply_3").addEventListener("click", event => {
             applyStyle("3");
           })
+
+          /*ladeKonten(); ich verstehe nicht wieso */
+
+          /* Button Laden Klick */
+          document.getElementById("button_load_1").addEventListener("click", event => {
+            ladeKonten("1");
+          })
+          document.getElementById("button_load_1").addEventListener("click", event => {
+            ladeKonten("2");
+          })
+          document.getElementById("button_load_1").addEventListener("click", event => {
+            ladeKonten("3");
+          })
+
+          /* --- Button Speichern Klick  ---*/
+          document.getElementById("button_save_1").addEventListener("click", event => {
+            erzeugeKonto("1");
+          })
+          document.getElementById("button_save_2").addEventListener("click", event => {
+            erzeugeKonto("1");
+          })
+          document.getElementById("button_save_3").addEventListener("click", event => {
+            erzeugeKonto("1");
+          })
+          
 
           function applyStyle(trans_number) {
             alert("Button " + trans_number + " clicked!")
