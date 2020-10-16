@@ -19,7 +19,7 @@
 
           /* ------------ ANWENDEN ------------ */
           function applyStyle(trans_number) {
-            alert("Button " + trans_number + " clicked!")
+            console.log("Button " + trans_number + " clicked!");
 
             /* --- Read settings --- */
               /* READ Property */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
