@@ -1,4 +1,5 @@
 const { link } = require("fs");
+const { type } = require("os");
 
 window.onload = function(){
 
@@ -53,35 +54,65 @@ window.onload = function(){
           function erzeugeKonto(trans_number) {
           /* Erst alte gegebenenfalls vorhandene Daten löschen */
 
-            fetch('transitions/' + trans_number + '/', { method = 'DELETE' })
+            fetch('transitions/' + trans_number + '/', { method: 'DELETE' })
             .then(res => {  })
             .catch(err => zeigeFehler(err));
         
 
             
-          /* Dann neue Daten einpflegen */  
+          /* Dann neue Daten einpflegen */
+          /* Daten auslesen */  
 
-            /* GET Property */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
+            /* READ Property */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
             var option_prop_trans = document.getElementById("property_trans" + trans_number);
             var property_user = option_prop_trans.options[option_prop_trans.selectedIndex].text;
             console.log("PROPERTY: " + property_user);    
 
-            /* GET Duration */
+            /* READ Duration */
             var duration_user = document.getElementById("duration_trans" + trans_number).value;
             console.log("DURATION: " + duration_user);  
               
-            /* GET Timing */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
+            /* READ Timing */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
             var option_time_trans = document.getElementById("timing_trans" + trans_number);
             var timing_user = option_time_trans.options[option_time_trans.selectedIndex].text;
             console.log("TIMING: " + timing_user);
               
-            /* GET Delay */
+            /* READ Delay */
             var delay_user = document.getElementById("delay_trans" + trans_number).value;
             console.log("DELAY: " + delay_user);
 
+          /* Jetzt Daten abspeichern */
+            /* SAVE Property */
+            fetch('transitions/' + trans_number + '/', {
+              method: 'POST',
+              body: JSON.stringify({ "property": property_user}),
+              header: {"Content-Type": "application/json"} })
+            .then(res => {  })
+            .catch(err => zeigeFehler(err));
 
+            /* SAVE Duration */
+            fetch('transitions/' + trans_number + '/', {
+              method: 'POST',
+              body: JSON.stringify({ "duration": duration_user}),
+              header: {"Content-Type": "application/json"} })
+            .then(res => {  })
+            .catch(err => zeigeFehler(err));
 
-
+            /* SAVE Timing */
+            fetch('transitions/' + trans_number + '/', {
+              method: 'POST',
+              body: JSON.stringify({ "timing": timing_user}),
+              header: {"Content-Type": "application/json"} })
+            .then(res => {  })
+            .catch(err => zeigeFehler(err));            
+            
+            /* SAVE Delay */
+            fetch('transitions/' + trans_number + '/', {
+              method: 'POST',
+              body: JSON.stringify({ "delay": delay_user}),
+              header: {"Content-Type": "application/json"} })
+            .then(res => {  })
+            .catch(err => zeigeFehler(err));               
 
         }
 
