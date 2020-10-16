@@ -30,29 +30,19 @@ window.onload = function(){
      
           
           /* ------------- LADEN -------------- */
-          function ladeKonten() { /*TODO: Name noch ändern */
-            fetch('transitions/')
+          function ladeKonten(trans_number) { /*TODO: Name noch ändern */
+            console.log("Lade Transition für Trans " + trans_number + "!")
+            
+            fetch('transitions/' +  trans_number + '/')
               .then(res => res.json())
-              .then(transitions => transitions.forEach(zeigeKonto))
+              /*.then(transitions => transitions.forEach(zeigeKonto))*/
+              .then(transitions => {
+                document.getElementById("property_trans" + trans_number).value = `${transition.property}`;
+                document.getElementById("duration_trans" + trans_number).value = `${transition.duration}`;
+                document.getElementById("timing_trans" + trans_number).value = `${transition.timing}`;
+                document.getElementById("delay_trans" + trans_number).value = `${transition.delay}`;
+              })
             .catch(err => zeigeFehler(err));
-
-
-          /* Datenbank zu HTML-Elementen übertragen -> eigentlich ein doppler, wird schon in zeige konto/ausgabe gemacht!*/
-          document.getElementById("property_trans1").value = property; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          document.getElementById("property_trans2").value = property; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          document.getElementById("property_trans3").value = property; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-
-          document.getElementById("duration_trans1").value = duration; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          document.getElementById("duration_trans2").value = duration; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          document.getElementById("duration_trans3").value = duration; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          
-          document.getElementById("timing_trans1").value = timing; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          document.getElementById("timing_trans2").value = timing; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          document.getElementById("timing_trans3").value = timing; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-
-          document.getElementById("delay_trans1").value = delay; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          document.getElementById("delay_trans2").value = delay; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
-          document.getElementById("delay_trans3").value = delay; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
 
           }
 

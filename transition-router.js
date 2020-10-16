@@ -62,7 +62,6 @@ router.post('/', (req, res) => {
 		"property": req.body.property_html, /* TODO: noch anlegen */
 		"duration": req.body.duration_html, /* TODO: noch anlegen */
 		"timing": req.body.timing_html, /* TODO: noch anlegen */
-		"property": req.body.property_html, /* TODO: noch anlegen */
 		"delay": req.body.delay_html /* TODO: noch anlegen */
 	})
 
