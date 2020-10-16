@@ -48,7 +48,19 @@ window.onload = function(){
 
 
 
+          /* ------------- SPEICHERN -------------- */
 
+          function erzeugeKonto(trans_number) {
+          /* Erst alte gegebenenfalls vorhandene Daten löschen */
+
+            fetch('transitions/' + trans_number + '/', { method = 'DELETE' })
+            .then(res => {  })
+            .catch(err => zeigeFehler(err));
+        
+            
+          /* Dann neue Daten einpflegen */  
+
+        }
 
 
 
