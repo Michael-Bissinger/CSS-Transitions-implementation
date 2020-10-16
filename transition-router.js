@@ -86,4 +86,4 @@ module.exports = router
 konto = transition
 Konto = Transitionsetup
 
-=> Wurde umgebaut zu einer REST-Anwendung. Wir schicken kein HTML mehr, sondern nur noch JSON
+=> Wurde umgebaut zu einer REST-Anwendung. Wir schicken kein HTML mehr, sondern nur noch JSON */

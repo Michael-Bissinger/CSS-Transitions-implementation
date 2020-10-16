@@ -7,13 +7,13 @@ const { link } = require("fs");
 
           /* Button Laden <<<Klick>>> */
           document.getElementById("button_load_1").addEventListener("click", event => {
-            zeigeKonto("1");
+            ladeKonten("1");
           })
           document.getElementById("button_load_1").addEventListener("click", event => {
-            zeigeKonto("2");
+            ladeKonten("2");
           })
           document.getElementById("button_load_1").addEventListener("click", event => {
-            zeigeKonto("3");
+            ladeKonten("3");
           })
 
           /* --- Button Speichern <<<Klick>>>  ---*/
@@ -44,8 +44,26 @@ const { link } = require("fs");
          function ladeKonten() { /*TODO: Name noch ändern */
             fetch('transitions/')
               .then(res => res.json())
-              .then(transitions => transitions.forEach(zeigeKonto)
-            .catch(err => zeigeFehler(err))
+              .then(transitions => transitions.forEach(zeigeKonto))
+            .catch(err => zeigeFehler(err));
+
+
+          /* Datenbank zu HTML-Elementen übertragen */
+          document.getElementById("property_trans1").value = property; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          document.getElementById("property_trans2").value = property; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          document.getElementById("property_trans3").value = property; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+
+          document.getElementById("duration_trans1").value = duration; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          document.getElementById("duration_trans2").value = duration; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          document.getElementById("duration_trans3").value = duration; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          
+          document.getElementById("timing_trans1").value = timing; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          document.getElementById("timing_trans2").value = timing; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          document.getElementById("timing_trans3").value = timing; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+
+          document.getElementById("delay_trans1").value = delay; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          document.getElementById("delay_trans2").value = delay; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
+          document.getElementById("delay_trans3").value = delay; /* hier noch richtige Schreibweise finden, wie man das schreibt, dass es aus Datenbank gezogen wird */
 
           }
 
@@ -58,10 +76,10 @@ const { link } = require("fs");
             var delay_user = document.getElementById("delay_trans" + trans_number);
             
           /* Ausgabe */
-            option_prop_trans.text = property /* `${property}` */
-            duration_user.value = duration /* `${duration}` */
-            option_time_trans.text = timing /* `${timing}` */
-            delay_user.value = delay /* `${delay}` */
+            option_prop_trans.text = property; /* `${property}` */
+            duration_user.value = duration; /* `${duration}` */
+            option_time_trans.text = timing; /* `${timing}` */
+            delay_user.value = delay; /* `${delay}` */
         }
 
           /* Errorhandling */

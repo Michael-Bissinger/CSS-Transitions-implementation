@@ -1,5 +1,3 @@
-/* applikation for transitions */
-
 const express = require('express')
 const userRouter = require('./user-router')
 const dataRouter = require('./data-router')
