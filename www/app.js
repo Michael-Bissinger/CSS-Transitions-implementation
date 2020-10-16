@@ -46,22 +46,15 @@ window.onload = function(){
 
           }
 
-          function zeigeKonto(transitionnummer) {
 
-          /* Referenzen aufbauen */
-            var option_prop_trans = document.getElementById("property_trans" + trans_number);
-            var duration_user = document.getElementById("duration_trans" + trans_number);
-            var option_time_trans = document.getElementById("timing_trans" + trans_number);
-            var delay_user = document.getElementById("delay_trans" + trans_number);
-            
-          /* Ausgabe */
-            option_prop_trans.text = property; /* `${property}` */
-            duration_user.value = duration; /* `${duration}` */
-            option_time_trans.text = timing; /* `${timing}` */
-            delay_user.value = delay; /* `${delay}` */
-        }
 
-          /* Errorhandling */
+
+
+
+
+
+
+/*------- Errorhandling ---------------------*/
           zeigeFehler(fehlertext) {
             const err_out = document.getElementById('error_out')
             const div = document.createElement('div')
@@ -74,12 +67,5 @@ window.onload = function(){
             setTimeout(() => err_out.removeChild(div), 5000)
 
           }
-
-
-
-
-
-
-
 
 }
