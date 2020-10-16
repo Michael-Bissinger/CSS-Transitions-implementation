@@ -24,10 +24,10 @@ window.onload = function(){
     erzeugeKonto("1");
   })
   document.getElementById("button_save_2").addEventListener("click", event => {
-    erzeugeKonto("1");
+    erzeugeKonto("2");
   })
   document.getElementById("button_save_3").addEventListener("click", event => {
-    erzeugeKonto("1");
+    erzeugeKonto("3");
   })
 
      
@@ -88,7 +88,7 @@ window.onload = function(){
             fetch('transitions/' + trans_number + '/', {
               method: 'POST',
               body: JSON.stringify({ "property": property_user}),
-              header: {"Content-Type": "application/json"} })
+              headers: {"Content-Type": "application/json"} })
             .then(res => {  })
             .catch(err => zeigeFehler(err));
 
@@ -96,7 +96,7 @@ window.onload = function(){
             fetch('transitions/' + trans_number + '/', {
               method: 'POST',
               body: JSON.stringify({ "duration": duration_user}),
-              header: {"Content-Type": "application/json"} })
+              headers: {"Content-Type": "application/json"} })
             .then(res => {  })
             .catch(err => zeigeFehler(err));
 
@@ -104,7 +104,7 @@ window.onload = function(){
             fetch('transitions/' + trans_number + '/', {
               method: 'POST',
               body: JSON.stringify({ "timing": timing_user}),
-              header: {"Content-Type": "application/json"} })
+              headers: {"Content-Type": "application/json"} })
             .then(res => {  })
             .catch(err => zeigeFehler(err));            
             
@@ -112,7 +112,7 @@ window.onload = function(){
             fetch('transitions/' + trans_number + '/', {
               method: 'POST',
               body: JSON.stringify({ "delay": delay_user}),
-              header: {"Content-Type": "application/json"} })
+              headers: {"Content-Type": "application/json"} })
             .then(res => {  })
             .catch(err => zeigeFehler(err));               
 
