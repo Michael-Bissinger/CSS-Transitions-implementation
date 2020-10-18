@@ -11,7 +11,7 @@ app.use('/', express.static('www'))
 app.use('/lib', express.static('node_modules'))
 
 app.use('/users/', userRouter)
-app.use('/data', transitionRouter)
+app.use('/data', dataRouter)
 app.use('/transitions', transitionRouter) /* konten = transitions */
 
 app.listen(port, () => console.log(`Open http://localhost:${port}`))

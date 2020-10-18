@@ -2,7 +2,7 @@
 
 /* window.onload sorgt dafür, dass das Script erst ausgeführt wird, wenn die Seite geladen wurde. Sonst existieren die IDs nämlich noch nicht */
         window.onload = function(){ 
-
+          
           /* Button Anwenden <<<Klick>>> */
           document.getElementById("button_apply_1").addEventListener("click", event => {
             applyStyle("1");
