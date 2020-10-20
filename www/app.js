@@ -3,7 +3,7 @@ const { type } = require("os");
 
 window.onload = function(){
 
-
+  alert("hi");
   ladeKonten("1"); /* holt sich alles aus Datenbank */
   ladeKonten("2"); /* holt sich alles aus Datenbank */
   ladeKonten("3"); /* holt sich alles aus Datenbank */
@@ -117,13 +117,13 @@ window.onload = function(){
             .catch(err => zeigeFehler(err));               
 
         }
-
+      
 
       
 
 
 /*------- Errorhandling ---------------------*/
-          zeigeFehler(fehlertext) {
+          function zeigeFehler(fehlertext) {
             const err_out = document.getElementById('error_out')
             const div = document.createElement('div')
             div.classList.add('alert')
