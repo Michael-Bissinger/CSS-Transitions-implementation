@@ -1,5 +1,7 @@
-const { link } = require("fs");
-const { type } = require("os");
+/* braucht man die oder nicht? noch klären */
+
+/*const { link } = require("fs");
+const { type } = require("os");*/
 
 window.onload = function(){
 
@@ -12,10 +14,10 @@ window.onload = function(){
   document.getElementById("button_load_1").addEventListener("click", event => {
     ladeKonten("1");
   })
-  document.getElementById("button_load_1").addEventListener("click", event => {
+  document.getElementById("button_load_2").addEventListener("click", event => {
     ladeKonten("2");
   })
-  document.getElementById("button_load_1").addEventListener("click", event => {
+  document.getElementById("button_load_3").addEventListener("click", event => {
     ladeKonten("3");
   })
 
