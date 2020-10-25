@@ -3,9 +3,15 @@
 /*const { link } = require("fs");
 const { type } = require("os");*/
 
+/*
+docker run --rm -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret --name mongodb mongo
+
+docker run -ti -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -p 27017:27017 mongo
+
+*/
+
 window.onload = function(){
 
-  alert("hi");
   ladeKonten("1"); /* holt sich alles aus Datenbank */
   ladeKonten("2"); /* holt sich alles aus Datenbank */
   ladeKonten("3"); /* holt sich alles aus Datenbank */
@@ -41,11 +47,20 @@ window.onload = function(){
             fetch('transitions/' +  trans_number + '/')
               .then(res => res.json())
               /*.then(transitions => transitions.forEach(zeigeKonto))*/
-              .then(transitions => {
-                document.getElementById("property_trans" + trans_number).value = `${transition.property}`;
+              /*.then(transitions => {  */
+              .then(transition => {  
+                /*document.getElementById("property_trans" + trans_number).value = `${transition.property}`;
                 document.getElementById("duration_trans" + trans_number).value = `${transition.duration}`;
                 document.getElementById("timing_trans" + trans_number).value = `${transition.timing}`;
-                document.getElementById("delay_trans" + trans_number).value = `${transition.delay}`;
+                document.getElementById("delay_trans" + trans_number).value = `${transition.delay}`;*/
+
+                document.getElementById("property_trans" + trans_number).value = transition.property;
+                document.getElementById("duration_trans" + trans_number).value = transition.duration;
+                document.getElementById("timing_trans" + trans_number).value = transition.timing;
+                document.getElementById("delay_trans" + trans_number).value = transition.delay;
+                
+                /*konto.kontonummer*/
+
               })
             .catch(err => zeigeFehler(err));
 
@@ -126,6 +141,7 @@ window.onload = function(){
 
 /*------- Errorhandling ---------------------*/
           function zeigeFehler(fehlertext) {
+            alert("Fail " + fehlertext);
             const err_out = document.getElementById('error_out')
             const div = document.createElement('div')
             div.classList.add('alert')
