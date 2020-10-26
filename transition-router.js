@@ -91,7 +91,7 @@ router.post('/', (req, res) => {
 	})
 
 	transition.save()
-		.then(data => res.redirect("" + transitionnummer + "/").end())
+		.then(data => res.redirect("" + transnummer_html + "/").end())
 		.catch(err => res.status(500).send("Transition konnte nicht angelegt werden"))
 })
 
