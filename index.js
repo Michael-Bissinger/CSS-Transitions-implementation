@@ -9,7 +9,7 @@ app.use(express.json())
 
 app.use('/', express.static('www'))
 app.use('/lib', express.static('node_modules'))
-
+ 
 app.use('/users/', userRouter)
 app.use('/data', dataRouter)
 app.use('/konten', bankRouter)

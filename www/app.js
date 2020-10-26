@@ -98,12 +98,37 @@ function ladeKonten() {
 
 function erzeugeKonto(evt) {
 	const nameInput = document.getElementById("name")
+
+	/* my app */const property_trans1 = document.getElementById("property_trans1") /* my app */
+	/* my app */const property_trans2 = document.getElementById("property_trans2") /* my app */
+	/* my app */const property_trans3 = document.getElementById("property_trans3") /* my app */
+	/* my app */console.log("property: " + property_trans1 + property_trans2 + property_trans3)
+
+	/* my app */const duration_trans1 = document.getElementById("duration_trans1") /* my app */
+	/* my app */const duration_trans2 = document.getElementById("duration_trans2") /* my app */
+	/* my app */const duration_trans3 = document.getElementById("duration_trans3") /* my app */
+	/* my app */console.log("duration: " + duration_trans1 + duration_trans2 + duration_trans3)
+
+	/* my app */const timing_trans1 = document.getElementById("timing_trans1") /* my app */
+	/* my app */const timing_trans2 = document.getElementById("timing_trans2") /* my app */
+	/* my app */const timing_trans3 = document.getElementById("timing_trans3") /* my app */
+	/* my app */console.log("timing: " + timing_trans1 + timing_trans2 + timing_trans3)
+
+	/* my app */const delay_trans1 = document.getElementById("delay_trans1") /* my app */
+	/* my app */const delay_trans2 = document.getElementById("delay_trans2") /* my app */
+	/* my app */const delay_trans3 = document.getElementById("delay_trans3") /* my app */
+	/* my app */console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
+
 	document.getElementById('new_account_div').classList.add('hidden');
 	console.log(nameInput.value);
 
 	fetch('konten/', {
 		method: 'POST',
-		body: JSON.stringify({ "Name": nameInput.value }),
+		body: JSON.stringify({ "Name": nameInput.value, 
+		"Property_trans1": property_trans1.value,
+		"Property_trans2": property_trans1.value,
+		"Property_trans3": property_trans1.value,
+		"Duration_trans1" }),
 		headers: {
 			"Content-Type": "application/json"
 		}

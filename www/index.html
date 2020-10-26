@@ -19,6 +19,31 @@
         <a style="background-color: #b3e0ff" href="#transition3">Transition 3</a>
       </header>
 
+      <h1>Hallo Welt</h1>
+      <p id="error_out"></p>
+    
+      <div id="new_account_div" class="hidden">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+            <small id="nameHelp" class="form-text text-muted">Bitte Vor-/Nachname eingeben</small>
+          </div>
+          <button type="submit" class="btn btn-primary" id="create_account_button">Konto erstellen</button>
+        </form>
+      </div>
+    
+    
+      <p>
+        <button type="button" class="btn btn-info" id="refresh_button">Refresh</button>
+        <button type="button" class="btn btn-info" id="new_account_button">Create new account</button>
+    
+      <ol id="data_out">
+      </ol>
+    
+      </p>
+
+
 
     <h1>Transition Manager</h1>
 
@@ -64,7 +89,7 @@
                 <option>ease-in-out</option>
               </select></p>
               <p><form>
-                <label for="duration">(in ms)
+                <label for="delay">(in ms)
                   <input type="text" id="delay_trans1" name="delay">
                 </label>
               </form></p>
