@@ -54,24 +54,26 @@ router.get('/:kontonummer/kontostand/', (req, res) => {
 		.catch(err => res.sendStatus(404).send("Konto nicht gefunden").end())
 })
 
+
 router.post('/', (req, res) => {
-	const kontonummer = "" + Math.floor(10000000 * Math.random())
+	/*const kontonummer = "" + Math.floor(10000000 * Math.random())*/
+	/* my app */ const kontonummer = 1
 	const konto = new Konto({
 		"kontonummer": kontonummer,
 		"name": req.body.Name,
 		"kontostand": 100,
-	/* my app */	"Property_trans1": req.body.Property_trans1,
-	/* my app */	"Property_trans2": req.body.Property_trans2,
-	/* my app */	"Property_trans3": req.body.Property_trans3,
-	/* my app */	"Duration_trans1": req.body.Duration_trans1,
-	/* my app */	"Duration_trans2": req.body.Duration_trans2,
-	/* my app */	"Duration_trans3": req.body.Duration_trans3,
-	/* my app */	"Timing_trans1": req.body.Timing_trans1,
-	/* my app */	"Timing_trans2": req.body.Timing_trans2,
-	/* my app */	"Timing_trans3": req.body.Timing_trans3,
-	/* my app */	"Delay_trans1": req.body.Delay_trans1,
-	/* my app */	"Delay_trans2": req.body.Delay_trans2,
-	/* my app */	"Delay_trans3": req.body.Delay_trans3
+	/* my app */	"property_trans1": req.body.Property_trans1,
+	/* my app */	"property_trans2": req.body.Property_trans2,
+	/* my app */	"property_trans3": req.body.Property_trans3,
+	/* my app */	"duration_trans1": req.body.Duration_trans1,
+	/* my app */	"duration_trans2": req.body.Duration_trans2,
+	/* my app */	"duration_trans3": req.body.Duration_trans3,
+	/* my app */	"timing_trans1": req.body.Timing_trans1,
+	/* my app */	"timing_trans2": req.body.Timing_trans2,
+	/* my app */	"timing_trans3": req.body.Timing_trans3,
+	/* my app */	"delay_trans1": req.body.Delay_trans1,
+	/* my app */	"delay_trans2": req.body.Delay_trans2,
+	/* my app */	"delay_trans3": req.body.Delay_trans3
 	})
 
 	konto.save()

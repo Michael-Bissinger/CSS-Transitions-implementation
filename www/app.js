@@ -1,7 +1,8 @@
 function zeigeKontoDetails(kontonummer, contentDiv) {
 	console.log("zeigeKontoDetails: ", kontonummer, contentDiv)
-	fetch('konten/' + kontonummer + '/')
-		.then(res => res.json())
+	/*fetch('konten/' + kontonummer + '/')
+/* my app */fetch('konten/' + 1 + '/')
+	.then(res => res.json())
 		.then(konto => {
 			contentDiv.innerHTML = ""
 			const div = document.createElement('div')
@@ -21,6 +22,10 @@ function zeigeKontoDetails(kontonummer, contentDiv) {
 			const p = document.createElement('p')
 			p.classList.add('card-text')
 			p.innerText = konto.kontonummer
+
+			/* my app */alert("Duration_trans1: " + konto.duration_trans1)
+			/* my app */alert("Kontonr: " + konto.kontonummer)
+			/* my app */alert("Kontoname: " + konto.name)
 
 			const a = document.createElement('a')
 			a.classList.add('btn')
@@ -99,29 +104,36 @@ function ladeKonten() {
 function erzeugeKonto(evt) {
 	const nameInput = document.getElementById("name")
 
-	/* my app */const property_trans1 = document.getElementById("property_trans1") /* my app */
-	/* my app */const property_trans2 = document.getElementById("property_trans2") /* my app */
-	/* my app */const property_trans3 = document.getElementById("property_trans3") /* my app */
+	/* my app */const property_trans1 = document.getElementById("property_trans1")
+	/* my app */const property_trans2 = document.getElementById("property_trans2")
+	/* my app */const property_trans3 = document.getElementById("property_trans3")
 	/* my app */console.log("property: " + property_trans1 + property_trans2 + property_trans3)
 
-	/* my app */const duration_trans1 = document.getElementById("duration_trans1") /* my app */
-	/* my app */const duration_trans2 = document.getElementById("duration_trans2") /* my app */
-	/* my app */const duration_trans3 = document.getElementById("duration_trans3") /* my app */
+	/* my app */const duration_trans1 = document.getElementById("duration_trans1")
+	/* my app */const duration_trans2 = document.getElementById("duration_trans2")
+	/* my app */const duration_trans3 = document.getElementById("duration_trans3")
 	/* my app */console.log("duration: " + duration_trans1 + duration_trans2 + duration_trans3)
 
-	/* my app */const timing_trans1 = document.getElementById("timing_trans1") /* my app */
-	/* my app */const timing_trans2 = document.getElementById("timing_trans2") /* my app */
-	/* my app */const timing_trans3 = document.getElementById("timing_trans3") /* my app */
+	/* my app */const timing_trans1 = document.getElementById("timing_trans1")
+	/* my app */const timing_trans2 = document.getElementById("timing_trans2")
+	/* my app */const timing_trans3 = document.getElementById("timing_trans3")
 	/* my app */console.log("timing: " + timing_trans1 + timing_trans2 + timing_trans3)
 
-	/* my app */const delay_trans1 = document.getElementById("delay_trans1") /* my app */
-	/* my app */const delay_trans2 = document.getElementById("delay_trans2") /* my app */
-	/* my app */const delay_trans3 = document.getElementById("delay_trans3") /* my app */
+	/* my app */const delay_trans1 = document.getElementById("delay_trans1")
+	/* my app */const delay_trans2 = document.getElementById("delay_trans2")
+	/* my app */const delay_trans3 = document.getElementById("delay_trans3")
 	/* my app */console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
 
 	document.getElementById('new_account_div').classList.add('hidden');
 	console.log(nameInput.value);
 
+	/* Erst konto 1 löschen, dann geht's weiter */
+	/* my app */fetch('konten/' + 1 + '/', { method: 'DELETE' })
+	/* my app */.then(res => {   })
+	/* my app */.catch(err => zeigeFehler(err))
+	
+	
+	/* Jetzt konto 1 neu erstellen */	
 	fetch('konten/', {
 		method: 'POST',
 		body: JSON.stringify({ 
@@ -146,6 +158,7 @@ function erzeugeKonto(evt) {
 	})
 		.then(res => ladeKonten())
 		.catch(err => zeigeFehler(err))
+
 
 	evt.preventDefault();
 }
