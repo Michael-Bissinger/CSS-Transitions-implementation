@@ -1,157 +1,126 @@
-/* braucht man die oder nicht? noch klären */
+function zeigeKontoDetails(kontonummer, contentDiv) {
+	console.log("zeigeKontoDetails: ", kontonummer, contentDiv)
+	fetch('konten/' + kontonummer + '/')
+		.then(res => res.json())
+		.then(konto => {
+			contentDiv.innerHTML = ""
+			const div = document.createElement('div')
+			div.classList.add('card')
+			div.style.width = "18rem"
 
-/*const { link } = require("fs");
-const { type } = require("os");*/
+			const img = document.createElement('img')
+			img.src = "https://vignette.wikia.nocookie.net/donald-duck/images/1/1d/Dagobert_duck.jpg/revision/latest?cb=20100716165905&path-prefix=de"
 
-/*
-docker run --rm -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret --name mongodb mongo
+			const divCardBody = document.createElement('div')
+			divCardBody.classList.add('card-body')
 
-docker run -ti -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -p 27017:27017 mongo
+			const h5 = document.createElement('h5')
+			h5.classList.add('card-title')
+			h5.innerText = konto.name
 
-*/
+			const p = document.createElement('p')
+			p.classList.add('card-text')
+			p.innerText = konto.kontonummer
 
-window.onload = function(){
+			const a = document.createElement('a')
+			a.classList.add('btn')
+			a.classList.add('btn-primary')
+			a.innerText = "Close"
+			a.addEventListener('click', evt => { 
+				contentDiv.innerHTML = "";
+				evt.preventDefault();
+			})
 
-  /*loadTrans("1"); /* holt sich alles aus Datenbank */
-  /*loadTrans("2"); /* holt sich alles aus Datenbank */
-  /*loadTrans("3"); /* holt sich alles aus Datenbank */
+			const deleteLink = document.createElement('a')
+			deleteLink.classList.add('btn')
+			deleteLink.classList.add('btn-primary')
+			deleteLink.innerText = "Delete"
+			deleteLink.addEventListener('click', evt => {
 
-  /* Button Laden <<<Klick>>> */
-  document.getElementById("button_load_1").addEventListener("click", event => {
-    loadTrans("1");
-  })
-  document.getElementById("button_load_2").addEventListener("click", event => {
-    loadTrans("2");
-  })
-  document.getElementById("button_load_3").addEventListener("click", event => {
-    loadTrans("3");
-  })
+				fetch('konten/' + kontonummer + '/', { method: 'DELETE' })
+					.then(res => {
+						const li = contentDiv.closest('li')
+						const ol = li.parentElement
+						ol.removeChild(li)
+					})
+					.catch(err => zeigeFehler(err))
 
-  /* --- Button Speichern <<<Klick>>>  ---*/
-  document.getElementById("button_save_1").addEventListener("click", event => {
-    saveTrans("1");
-  })
-  document.getElementById("button_save_2").addEventListener("click", event => {
-    saveTrans("2");
-  })
-  document.getElementById("button_save_3").addEventListener("click", event => {
-    saveTrans("3");
-  })
+				evt.preventDefault();
+			})
 
-  
-          
-          /* ------------- LADEN -------------- */
-          function loadTrans(trans_number) { /*TODO: Name noch ändern */
-            console.log("Lade Transition für Trans " + trans_number + "!")
-            
-            fetch('transitions/' +  trans_number + '/')
-              .then(res => res.json())
-              /*.then(transitions => transitions.forEach(zeigeKonto))*/
-              /*.then(transitions => {  */
-              .then(transition => {  
-                /*document.getElementById("property_trans" + trans_number).value = `${transition.property}`;
-                document.getElementById("duration_trans" + trans_number).value = `${transition.duration}`;
-                document.getElementById("timing_trans" + trans_number).value = `${transition.timing}`;
-                document.getElementById("delay_trans" + trans_number).value = `${transition.delay}`;*/
-
-                document.getElementById("property_trans" + trans_number).value = transition.property;
-                document.getElementById("duration_trans" + trans_number).value = transition.duration;
-                document.getElementById("timing_trans" + trans_number).value = transition.timing;
-                document.getElementById("delay_trans" + trans_number).value = transition.delay;
-                
-                /*konto.kontonummer*/
-
-              })
-            .catch(err => zeigeFehler(err));
-
-          }
-
-
-
-          /* ------------- SPEICHERN -------------- */
-
-          function saveTrans(trans_number) {
-          /* Erst alte gegebenenfalls vorhandene Daten löschen */
-
-            fetch('transitions/' + trans_number + '/', { method: 'DELETE' })
-            .then(res => {  })
-            .catch(err => zeigeFehler(err));
-        
-
-            
-          /* Dann neue Daten einpflegen */
-          /* Daten auslesen */  
-
-            /* READ Property */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
-            var option_prop_trans = document.getElementById("property_trans" + trans_number);
-            var property_user = option_prop_trans.options[option_prop_trans.selectedIndex].text;
-            console.log("PROPERTY: " + property_user);    
-
-            /* READ Duration */
-            var duration_user = document.getElementById("duration_trans" + trans_number).value;
-            console.log("DURATION: " + duration_user);  
-              
-            /* READ Timing */ /* credits to https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript */
-            var option_time_trans = document.getElementById("timing_trans" + trans_number);
-            var timing_user = option_time_trans.options[option_time_trans.selectedIndex].text;
-            console.log("TIMING: " + timing_user);
-              
-            /* READ Delay */
-            var delay_user = document.getElementById("delay_trans" + trans_number).value;
-            console.log("DELAY: " + delay_user);
-
-          /* Jetzt Daten abspeichern */
-            /* SAVE Property */
-            fetch('transitions/' + trans_number + '/', {
-              method: 'POST',
-              body: JSON.stringify({ "property": property_user}),
-              headers: {"Content-Type": "application/json"} })
-            .then(res => {  })
-            .catch(err => zeigeFehler(err));
-
-            /* SAVE Duration */
-            fetch('transitions/' + trans_number + '/', {
-              method: 'POST',
-              body: JSON.stringify({ "duration": duration_user}),
-              headers: {"Content-Type": "application/json"} })
-            .then(res => {  })
-            .catch(err => zeigeFehler(err));
-
-            /* SAVE Timing */
-            fetch('transitions/' + trans_number + '/', {
-              method: 'POST',
-              body: JSON.stringify({ "timing": timing_user}),
-              headers: {"Content-Type": "application/json"} })
-            .then(res => {  })
-            .catch(err => zeigeFehler(err));            
-            
-            /* SAVE Delay */
-            fetch('transitions/' + trans_number + '/', {
-              method: 'POST',
-              body: JSON.stringify({ "delay": delay_user}),
-              headers: {"Content-Type": "application/json"} })
-            .then(res => {  })
-            .catch(err => zeigeFehler(err));               
-
-        }
-      
-
-      
-
-
-/*------- Errorhandling ---------------------*/
-          function zeigeFehler(fehlertext) {
-            alert("Fail " + fehlertext);
-            const err_out = document.getElementById('error_out')
-            const div = document.createElement('div')
-            div.classList.add('alert')
-            div.classList.add('alert-danger')
-            div.setAttribute('role', 'alert')
-            div.innerText = fehlertext
-            err_out.appendChild(div)
-          
-            setTimeout(() => err_out.removeChild(div), 5000)
-
-          }
-
+			contentDiv.appendChild(div)
+			div.appendChild(img)
+			div.appendChild(divCardBody)
+			divCardBody.appendChild(h5)
+			divCardBody.appendChild(p)
+			divCardBody.appendChild(a)
+			divCardBody.appendChild(deleteLink)
+		})
+		.catch(err => zeigeFehler(err))
 }
+
+function zeigeKonto(kontonummer) {
+	console.log("zeigeKonto: ", kontonummer)
+	const ol = document.getElementById('data_out')
+	const li = document.createElement('li')
+	ol.appendChild(li)
+
+	const span = document.createElement('span');
+	span.innerText = kontonummer
+	span.addEventListener('click', () => zeigeKontoDetails(kontonummer, div))
+	li.appendChild(span)
+
+	const div = document.createElement('div')
+	li.appendChild(div)
+}
+
+function zeigeFehler(fehlertext) {
+	const err_out = document.getElementById('error_out')
+	const div = document.createElement('div')
+	div.classList.add('alert')
+	div.classList.add('alert-danger')
+	div.setAttribute('role', 'alert')
+	div.innerText = fehlertext
+	err_out.appendChild(div)
+
+	setTimeout(() => err_out.removeChild(div), 5000)
+}
+
+function ladeKonten() {
+	const ol = document.getElementById('data_out')
+	ol.innerHTML = "";
+
+	fetch('konten/')
+		.then(res => res.json())
+		.then(konten => konten.forEach(zeigeKonto))
+		.catch(err => zeigeFehler(err))
+}
+
+function erzeugeKonto(evt) {
+	const nameInput = document.getElementById("name")
+	document.getElementById('new_account_div').classList.add('hidden');
+	console.log(nameInput.value);
+
+	fetch('konten/', {
+		method: 'POST',
+		body: JSON.stringify({ "Name": nameInput.value }),
+		headers: {
+			"Content-Type": "application/json"
+		}
+	})
+		.then(res => ladeKonten())
+		.catch(err => zeigeFehler(err))
+
+	evt.preventDefault();
+}
+
+function zeigeFormular() {
+	document.getElementById('new_account_div').classList.remove('hidden');
+}
+
+window.addEventListener('load', evt => {
+	ladeKonten();
+	document.getElementById('refresh_button').addEventListener('click', ladeKonten)
+	document.getElementById('new_account_button').addEventListener('click', zeigeFormular)
+	document.getElementById('create_account_button').addEventListener('click', erzeugeKonto)
+})
