@@ -102,7 +102,7 @@ router.delete('/:transitionnummer', (req, res) => {
 		.then(transition => res.end("Ok"))
 		.catch(err => res.sendStatus(404).end("Transition nicht gefunden"))
 })
-
+ 
 module.exports = router
 
 /*
