@@ -12,36 +12,36 @@ docker run -ti -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD
 
 window.onload = function(){
 
-  /*ladeKonten("1"); /* holt sich alles aus Datenbank */
-  /*ladeKonten("2"); /* holt sich alles aus Datenbank */
-  /*ladeKonten("3"); /* holt sich alles aus Datenbank */
+  /*loadTrans("1"); /* holt sich alles aus Datenbank */
+  /*loadTrans("2"); /* holt sich alles aus Datenbank */
+  /*loadTrans("3"); /* holt sich alles aus Datenbank */
 
   /* Button Laden <<<Klick>>> */
   document.getElementById("button_load_1").addEventListener("click", event => {
-    ladeKonten("1");
+    loadTrans("1");
   })
   document.getElementById("button_load_2").addEventListener("click", event => {
-    ladeKonten("2");
+    loadTrans("2");
   })
   document.getElementById("button_load_3").addEventListener("click", event => {
-    ladeKonten("3");
+    loadTrans("3");
   })
 
   /* --- Button Speichern <<<Klick>>>  ---*/
   document.getElementById("button_save_1").addEventListener("click", event => {
-    erzeugeKonto("1");
+    saveTrans("1");
   })
   document.getElementById("button_save_2").addEventListener("click", event => {
-    erzeugeKonto("2");
+    saveTrans("2");
   })
   document.getElementById("button_save_3").addEventListener("click", event => {
-    erzeugeKonto("3");
+    saveTrans("3");
   })
 
-     
+  
           
           /* ------------- LADEN -------------- */
-          function ladeKonten(trans_number) { /*TODO: Name noch ändern */
+          function loadTrans(trans_number) { /*TODO: Name noch ändern */
             console.log("Lade Transition für Trans " + trans_number + "!")
             
             fetch('transitions/' +  trans_number + '/')
@@ -70,7 +70,7 @@ window.onload = function(){
 
           /* ------------- SPEICHERN -------------- */
 
-          function erzeugeKonto(trans_number) {
+          function saveTrans(trans_number) {
           /* Erst alte gegebenenfalls vorhandene Daten löschen */
 
             fetch('transitions/' + trans_number + '/', { method: 'DELETE' })

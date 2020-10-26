@@ -43,16 +43,41 @@ router.get('/:transitionnummer/', (req, res) => {
 		.catch(err => res.sendStatus(404).send("Transition nicht gefunden"))
 })
 
-/* WIRD NICHT GEBRAUCHT!!!
+/* get data from database */
 
 router.get('/:transitionnummer/property/', (req, res) => {
 	const transitionnummer = req.params.transitionnummer
 
-	Konto.findOne({ "transitionnummer": transitionnummer })
-		.then(konto => res.send("" + konto.kontostand).end())
-		.catch(err => res.sendStatus(404).send("Transition nicht gefunden").end())
+	Transition.findOne({ "transitionnummer": transitionnummer })
+		.then(transition => res.send("" + transition.property).end())
+		.catch(err => res.sendStatus(404).send("Transitionproperty nicht gefunden").end())
 })
- ... */
+
+router.get('/:transitionnummer/duration/', (req, res) => {
+	const transitionnummer = req.params.transitionnummer
+
+	Transition.findOne({ "transitionnummer": transitionnummer })
+		.then(transition => res.send("" + transition.duration).end())
+		.catch(err => res.sendStatus(404).send("Transitionduration nicht gefunden").end())
+})
+
+router.get('/:transitionnummer/timing/', (req, res) => {
+	const transitionnummer = req.params.transitionnummer
+
+	Transition.findOne({ "transitionnummer": transitionnummer })
+		.then(transition => res.send("" + transition.timing).end())
+		.catch(err => res.sendStatus(404).send("Transitiontiming nicht gefunden").end())
+})
+
+router.get('/:transitionnummer/delay/', (req, res) => {
+	const transitionnummer = req.params.transitionnummer
+
+	Transition.findOne({ "transitionnummer": transitionnummer })
+		.then(transition => res.send("" + transition.delay).end())
+		.catch(err => res.sendStatus(404).send("Transitiondelay nicht gefunden").end())
+})
+
+
 
 /* Nutzer speichert Transitiondaten */
 
