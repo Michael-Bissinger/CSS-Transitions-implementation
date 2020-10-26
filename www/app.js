@@ -12,9 +12,9 @@ docker run -ti -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD
 
 window.onload = function(){
 
-  ladeKonten("1"); /* holt sich alles aus Datenbank */
-  ladeKonten("2"); /* holt sich alles aus Datenbank */
-  ladeKonten("3"); /* holt sich alles aus Datenbank */
+  /*ladeKonten("1"); /* holt sich alles aus Datenbank */
+  /*ladeKonten("2"); /* holt sich alles aus Datenbank */
+  /*ladeKonten("3"); /* holt sich alles aus Datenbank */
 
   /* Button Laden <<<Klick>>> */
   document.getElementById("button_load_1").addEventListener("click", event => {
