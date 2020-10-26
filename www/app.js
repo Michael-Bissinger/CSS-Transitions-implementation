@@ -124,11 +124,22 @@ function erzeugeKonto(evt) {
 
 	fetch('konten/', {
 		method: 'POST',
-		body: JSON.stringify({ "Name": nameInput.value, 
-		"Property_trans1": property_trans1.value,
-		"Property_trans2": property_trans1.value,
-		"Property_trans3": property_trans1.value,
-		"Duration_trans1" }),
+		body: JSON.stringify({ 
+		"Name": nameInput.value, 
+		
+	/* my app */	"Property_trans1": property_trans1.value,
+	/* my app */	"Property_trans2": property_trans2.value,
+	/* my app */	"Property_trans3": property_trans3.value,
+	/* my app */	"Duration_trans1": duration_trans1.value,
+	/* my app */	"Duration_trans2": duration_trans2.value,
+	/* my app */	"Duration_trans3": duration_trans3.value,
+	/* my app */	"Timing_trans1": timing_trans1.value,
+	/* my app */	"Timing_trans2": timing_trans2.value,
+	/* my app */	"Timing_trans3": timing_trans3.value,
+	/* my app */	"Delay_trans1": delay_trans1.value,
+	/* my app */	"Delay_trans2": delay_trans2.value,
+	/* my app */	"Delay_trans3": delay_trans3.value
+		 }),
 		headers: {
 			"Content-Type": "application/json"
 		}

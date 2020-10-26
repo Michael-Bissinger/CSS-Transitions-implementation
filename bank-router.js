@@ -6,7 +6,23 @@ const router = express.Router()
 const kontoSchema = new mongoose.Schema({
 	kontonummer: String,
 	name: String,
-	kontostand: Number
+	kontostand: Number,
+
+	/* my app */property_trans1: String,
+	/* my app */property_trans2: String,
+	/* my app */property_trans3: String,
+
+	/* my app */duration_trans1: Number,
+	/* my app */duration_trans2: Number,
+	/* my app */duration_trans3: Number,
+
+	/* my app */timing_trans1: String,
+	/* my app */timing_trans2: String,
+	/* my app */timing_trans3: String,
+
+	/* my app */delay_trans1: Number,
+	/* my app */delay_trans2: Number,
+	/* my app */delay_trans3: Number
 });
 
 const Konto = mongoose.model('Konto', kontoSchema);
@@ -43,7 +59,19 @@ router.post('/', (req, res) => {
 	const konto = new Konto({
 		"kontonummer": kontonummer,
 		"name": req.body.Name,
-		"kontostand": 100
+		"kontostand": 100,
+	/* my app */	"Property_trans1": req.body.Property_trans1,
+	/* my app */	"Property_trans2": req.body.Property_trans2,
+	/* my app */	"Property_trans3": req.body.Property_trans3,
+	/* my app */	"Duration_trans1": req.body.Duration_trans1,
+	/* my app */	"Duration_trans2": req.body.Duration_trans2,
+	/* my app */	"Duration_trans3": req.body.Duration_trans3,
+	/* my app */	"Timing_trans1": req.body.Timing_trans1,
+	/* my app */	"Timing_trans2": req.body.Timing_trans2,
+	/* my app */	"Timing_trans3": req.body.Timing_trans3,
+	/* my app */	"Delay_trans1": req.body.Delay_trans1,
+	/* my app */	"Delay_trans2": req.body.Delay_trans2,
+	/* my app */	"Delay_trans3": req.body.Delay_trans3
 	})
 
 	konto.save()
