@@ -1,9 +1,88 @@
+function loadTransition() {
+	/*console.log("zeigeKontoDetails: ", kontonummer, contentDiv)*/
+	/*fetch('konten/' + kontonummer + '/')
+/* my app */fetch('konten/' + 1 + '/')
+	.then(res => res.json())
+		.then(konto => {
+
+	/* my app */const property_trans1 = document.getElementById("property_trans1")
+	/* my app */const property_trans2 = document.getElementById("property_trans2")
+	/* my app */const property_trans3 = document.getElementById("property_trans3")
+	/* my app */console.log("property: " + property_trans1 + property_trans2 + property_trans3)
+
+	/* my app */const duration_trans1 = document.getElementById("duration_trans1")
+	/* my app */const duration_trans2 = document.getElementById("duration_trans2")
+	/* my app */const duration_trans3 = document.getElementById("duration_trans3")
+	/* my app */console.log("duration: " + duration_trans1 + duration_trans2 + duration_trans3)
+
+	/* my app */const timing_trans1 = document.getElementById("timing_trans1")
+	/* my app */const timing_trans2 = document.getElementById("timing_trans2")
+	/* my app */const timing_trans3 = document.getElementById("timing_trans3")
+	/* my app */console.log("timing: " + timing_trans1 + timing_trans2 + timing_trans3)
+
+	/* my app */const delay_trans1 = document.getElementById("delay_trans1")
+	/* my app */const delay_trans2 = document.getElementById("delay_trans2")
+	/* my app */const delay_trans3 = document.getElementById("delay_trans3")
+	/* my app */console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
+
+	property_trans1.value = konto.property_trans1;
+	property_trans2.value = konto.property_trans2;
+	property_trans3.value = konto.property_trans3;		
+
+	duration_trans1.value = konto.duration_trans1;
+	duration_trans2.value = konto.duration_trans2;
+	duration_trans3.value = konto.duration_trans3;
+	
+	timing_trans1.value = konto.timing_trans1;
+	timing_trans2.value = konto.timing_trans2;
+	timing_trans3.value = konto.timing_trans3;
+
+	delay_trans1.value = konto.delay_trans1;
+	delay_trans2.value = konto.delay_trans2;
+	delay_trans3.value = konto.delay_trans3;
+
+	alert("Ladevorgang abgeschlossen! " + konto.property_trans1)
+
+		})
+		.catch(err => zeigeFehler(err))
+}
+
 function zeigeKontoDetails(kontonummer, contentDiv) {
 	console.log("zeigeKontoDetails: ", kontonummer, contentDiv)
 	/*fetch('konten/' + kontonummer + '/')
 /* my app */fetch('konten/' + 1 + '/')
 	.then(res => res.json())
 		.then(konto => {
+
+	/* my app */const property_trans1 = document.getElementById("property_trans1")
+	/* my app */const property_trans2 = document.getElementById("property_trans2")
+	/* my app */const property_trans3 = document.getElementById("property_trans3")
+	/* my app */console.log("property: " + property_trans1 + property_trans2 + property_trans3)
+
+	/* my app */const duration_trans1 = document.getElementById("duration_trans1")
+	/* my app */const duration_trans2 = document.getElementById("duration_trans2")
+	/* my app */const duration_trans3 = document.getElementById("duration_trans3")
+	/* my app */console.log("duration: " + duration_trans1 + duration_trans2 + duration_trans3)
+
+	/* my app */const timing_trans1 = document.getElementById("timing_trans1")
+	/* my app */const timing_trans2 = document.getElementById("timing_trans2")
+	/* my app */const timing_trans3 = document.getElementById("timing_trans3")
+	/* my app */console.log("timing: " + timing_trans1 + timing_trans2 + timing_trans3)
+
+	/* my app */const delay_trans1 = document.getElementById("delay_trans1")
+	/* my app */const delay_trans2 = document.getElementById("delay_trans2")
+	/* my app */const delay_trans3 = document.getElementById("delay_trans3")
+	/* my app */console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
+
+			alert("konto.property_trans1 " + konto.property_trans1)
+	property_trans1.value = konto.property_trans1;
+
+
+
+
+
+
+
 			contentDiv.innerHTML = ""
 			const div = document.createElement('div')
 			div.classList.add('card')
@@ -175,5 +254,5 @@ window.addEventListener('load', evt => {
 	document.getElementById('create_account_button').addEventListener('click', saveTransition)
 
 	document.getElementById('button_save').addEventListener('click', saveTransition)
-	document.getElementById('button_load').addEventListener('click', ladeKonten)
+	document.getElementById('button_load').addEventListener('click', loadTransition)
 })
