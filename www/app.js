@@ -17,7 +17,7 @@ function zeigeKontoDetails(kontonummer, contentDiv) {
 
 			const h5 = document.createElement('h5')
 			h5.classList.add('card-title')
-			h5.innerText = konto.name
+			h5.innerText = "platzhalter"
 
 			const p = document.createElement('p')
 			p.classList.add('card-text')
@@ -26,7 +26,7 @@ function zeigeKontoDetails(kontonummer, contentDiv) {
 			/* my app */alert("Duration_trans1: " + konto.duration_trans1)
 			/* my app */alert("Timing_trans2: " + konto.timing_trans2)
 			/* my app */alert("Kontonr: " + konto.kontonummer)
-			/* my app */alert("Kontoname: " + konto.name)
+			/* my app */alert("Kontoname: " + "platzhalter")
 
 			const a = document.createElement('a')
 			a.classList.add('btn')
@@ -102,8 +102,8 @@ function ladeKonten() {
 		.catch(err => zeigeFehler(err))
 }
 
-function erzeugeKonto(evt) {
-	const nameInput = document.getElementById("name")
+function saveTransition(evt) {
+	/*const nameInput = document.getElementById("name")*/
 
 	/* my app */const property_trans1 = document.getElementById("property_trans1")
 	/* my app */const property_trans2 = document.getElementById("property_trans2")
@@ -125,8 +125,8 @@ function erzeugeKonto(evt) {
 	/* my app */const delay_trans3 = document.getElementById("delay_trans3")
 	/* my app */console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
 
-	document.getElementById('new_account_div').classList.add('hidden');
-	console.log(nameInput.value);
+	/*document.getElementById('new_account_div').classList.add('hidden');*/
+	/*console.log(nameInput.value);*/
 
 	/* Erst konto 1 löschen, dann geht's weiter */
 	/* my app */fetch('konten/' + 1 + '/', { method: 'DELETE' })
@@ -138,7 +138,7 @@ function erzeugeKonto(evt) {
 	fetch('konten/', {
 		method: 'POST',
 		body: JSON.stringify({ 
-		"Name": nameInput.value, 
+		/*"Name": nameInput.value, */
 		
 	/* my app */	"Property_trans1": property_trans1.value,
 	/* my app */	"Property_trans2": property_trans2.value,
@@ -172,8 +172,8 @@ window.addEventListener('load', evt => {
 	ladeKonten();
 	document.getElementById('refresh_button').addEventListener('click', ladeKonten)
 	document.getElementById('new_account_button').addEventListener('click', zeigeFormular)
-	document.getElementById('create_account_button').addEventListener('click', erzeugeKonto)
+	document.getElementById('create_account_button').addEventListener('click', saveTransition)
 
-	document.getElementById('button_save').addEventListener('click', erzeugeKonto)
+	document.getElementById('button_save').addEventListener('click', saveTransition)
 	document.getElementById('button_load').addEventListener('click', ladeKonten)
 })

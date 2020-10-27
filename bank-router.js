@@ -60,7 +60,7 @@ router.post('/', (req, res) => {
 	/* my app */ const kontonummer = 1
 	const konto = new Konto({
 		"kontonummer": kontonummer,
-		"name": req.body.Name,
+		/*"name": req.body.Name,*/
 		"kontostand": 100,
 	/* my app */	"property_trans1": req.body.Property_trans1,
 	/* my app */	"property_trans2": req.body.Property_trans2,
