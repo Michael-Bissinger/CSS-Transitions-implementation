@@ -102,10 +102,8 @@ function ladeKonten() {
 		.catch(err => zeigeFehler(err))
 }
 
-function erzeugeKonto(trans_number) {
+function erzeugeKonto(evt) {
 	const nameInput = document.getElementById("name")
-
-	/* my app */ alert("Es geht um Transition " + trans_number)
 
 	/* my app */const property_trans1 = document.getElementById("property_trans1")
 	/* my app */const property_trans2 = document.getElementById("property_trans2")
@@ -141,8 +139,6 @@ function erzeugeKonto(trans_number) {
 		method: 'POST',
 		body: JSON.stringify({ 
 		"Name": nameInput.value, 
-
-	/* my app */	"Transnumber": trans_number,
 		
 	/* my app */	"Property_trans1": property_trans1.value,
 	/* my app */	"Property_trans2": property_trans2.value,
@@ -165,7 +161,7 @@ function erzeugeKonto(trans_number) {
 		.catch(err => zeigeFehler(err))
 
 
-	/*evt.preventDefault();*/
+	evt.preventDefault();
 }
 
 function zeigeFormular() {
@@ -176,40 +172,5 @@ window.addEventListener('load', evt => {
 	ladeKonten();
 	document.getElementById('refresh_button').addEventListener('click', ladeKonten)
 	document.getElementById('new_account_button').addEventListener('click', zeigeFormular)
-	/*document.getElementById('create_account_button').addEventListener('click', erzeugeKonto)*/
+	document.getElementById('create_account_button').addEventListener('click', erzeugeKonto)
 })
-
-/*document.getElementById("refresh_button").addEventListener("click", event => {
-    ladeKonten("1");
-  })
-
-  document.getElementById("new_account_button").addEventListener("click", event => {
-    zeigeFormular("1");
-  })*/
-
-  document.getElementById("create_account_button").addEventListener("click", event => {
-    erzeugeKonto("123323223");
-  })
-
-
-  /* Button Laden <<<Klick>>> */
-  document.getElementById("button_load_1").addEventListener("click", event => {
-    loadTrans("1");
-  })
-  document.getElementById("button_load_2").addEventListener("click", event => {
-    loadTrans("2");
-  })
-  document.getElementById("button_load_3").addEventListener("click", event => {
-    loadTrans("3");
-  })
-
-  /* --- Button Speichern <<<Klick>>>  ---*/
-  document.getElementById("button_save_1").addEventListener("click", event => {
-    saveTrans("1");
-  })
-  document.getElementById("button_save_2").addEventListener("click", event => {
-    saveTrans("2");
-  })
-  document.getElementById("button_save_3").addEventListener("click", event => {
-    saveTrans("3");
-  })
