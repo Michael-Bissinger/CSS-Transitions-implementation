@@ -182,55 +182,49 @@ function ladeKonten() {
 }
 
 function saveTransition(evt) {
-	/*const nameInput = document.getElementById("name")*/
 
-	/* my app */const property_trans1 = document.getElementById("property_trans1")
-	/* my app */const property_trans2 = document.getElementById("property_trans2")
-	/* my app */const property_trans3 = document.getElementById("property_trans3")
-	/* my app */console.log("property: " + property_trans1 + property_trans2 + property_trans3)
+	const property_trans1 = document.getElementById("property_trans1")
+	const property_trans2 = document.getElementById("property_trans2")
+	const property_trans3 = document.getElementById("property_trans3")
+	console.log("property: " + property_trans1 + property_trans2 + property_trans3)
 
-	/* my app */const duration_trans1 = document.getElementById("duration_trans1")
-	/* my app */const duration_trans2 = document.getElementById("duration_trans2")
-	/* my app */const duration_trans3 = document.getElementById("duration_trans3")
-	/* my app */console.log("duration: " + duration_trans1 + duration_trans2 + duration_trans3)
+	const duration_trans1 = document.getElementById("duration_trans1")
+	const duration_trans2 = document.getElementById("duration_trans2")
+	const duration_trans3 = document.getElementById("duration_trans3")
+	console.log("duration: " + duration_trans1 + duration_trans2 + duration_trans3)
 
-	/* my app */const timing_trans1 = document.getElementById("timing_trans1")
-	/* my app */const timing_trans2 = document.getElementById("timing_trans2")
-	/* my app */const timing_trans3 = document.getElementById("timing_trans3")
-	/* my app */console.log("timing: " + timing_trans1 + timing_trans2 + timing_trans3)
+	const timing_trans1 = document.getElementById("timing_trans1")
+	const timing_trans2 = document.getElementById("timing_trans2")
+	const timing_trans3 = document.getElementById("timing_trans3")
+	console.log("timing: " + timing_trans1 + timing_trans2 + timing_trans3)
 
-	/* my app */const delay_trans1 = document.getElementById("delay_trans1")
-	/* my app */const delay_trans2 = document.getElementById("delay_trans2")
-	/* my app */const delay_trans3 = document.getElementById("delay_trans3")
-	/* my app */console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
-
-	/*document.getElementById('new_account_div').classList.add('hidden');*/
-	/*console.log(nameInput.value);*/
+	const delay_trans1 = document.getElementById("delay_trans1")
+	const delay_trans2 = document.getElementById("delay_trans2")
+	const delay_trans3 = document.getElementById("delay_trans3")
+	console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
 
 	/* Erst konto 1 löschen, dann geht's weiter */
-	/* my app */fetch('konten/' + 1 + '/', { method: 'DELETE' })
-	/* my app */.then(res => {   })
-	/* my app */.catch(err => zeigeFehler(err))
+	fetch('konten/' + 1 + '/', { method: 'DELETE' })
+	.then(res => {   })
+	.catch(err => zeigeFehler(err))
 	
 	
 	/* Jetzt konto 1 neu erstellen */	
 	fetch('konten/', {
 		method: 'POST',
-		body: JSON.stringify({ 
-		/*"Name": nameInput.value, */
-		
-	/* my app */	"Property_trans1": property_trans1.value,
-	/* my app */	"Property_trans2": property_trans2.value,
-	/* my app */	"Property_trans3": property_trans3.value,
-	/* my app */	"Duration_trans1": duration_trans1.value,
-	/* my app */	"Duration_trans2": duration_trans2.value,
-	/* my app */	"Duration_trans3": duration_trans3.value,
-	/* my app */	"Timing_trans1": timing_trans1.value,
-	/* my app */	"Timing_trans2": timing_trans2.value,
-	/* my app */	"Timing_trans3": timing_trans3.value,
-	/* my app */	"Delay_trans1": delay_trans1.value,
-	/* my app */	"Delay_trans2": delay_trans2.value,
-	/* my app */	"Delay_trans3": delay_trans3.value
+		body: JSON.stringify({ 		
+		"Property_trans1": property_trans1.value,
+		"Property_trans2": property_trans2.value,
+		"Property_trans3": property_trans3.value,
+		"Duration_trans1": duration_trans1.value,
+		"Duration_trans2": duration_trans2.value,
+		"Duration_trans3": duration_trans3.value,
+		"Timing_trans1": timing_trans1.value,
+		"Timing_trans2": timing_trans2.value,
+		"Timing_trans3": timing_trans3.value,
+		"Delay_trans1": delay_trans1.value,
+		"Delay_trans2": delay_trans2.value,
+		"Delay_trans3": delay_trans3.value
 		 }),
 		headers: {
 			"Content-Type": "application/json"
@@ -250,9 +244,9 @@ function zeigeFormular() {
 
 window.addEventListener('load', evt => {
 	ladeKonten();
-	document.getElementById('refresh_button').addEventListener('click', ladeKonten)
+/*	document.getElementById('refresh_button').addEventListener('click', ladeKonten)
 	document.getElementById('new_account_button').addEventListener('click', zeigeFormular)
-	document.getElementById('create_account_button').addEventListener('click', saveTransition)
+	document.getElementById('create_account_button').addEventListener('click', saveTransition) */
 
 	document.getElementById('button_save').addEventListener('click', saveTransition)
 	document.getElementById('button_load').addEventListener('click', loadTransition)
