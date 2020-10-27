@@ -173,4 +173,7 @@ window.addEventListener('load', evt => {
 	document.getElementById('refresh_button').addEventListener('click', ladeKonten)
 	document.getElementById('new_account_button').addEventListener('click', zeigeFormular)
 	document.getElementById('create_account_button').addEventListener('click', erzeugeKonto)
+
+	document.getElementById('button_save').addEventListener('click', erzeugeKonto)
+	document.getElementById('button_load').addEventListener('click', ladeKonten)
 })
