@@ -57,7 +57,7 @@ router.get('/:kontonummer/kontostand/', (req, res) => {
 
 router.post('/', (req, res) => {
 	/*const kontonummer = "" + Math.floor(10000000 * Math.random())*/
-	/* my app */ const kontonummer = 1
+	/* my app */ const kontonummer = req.body.Transnumber
 	const konto = new Konto({
 		"kontonummer": kontonummer,
 		"name": req.body.Name,
