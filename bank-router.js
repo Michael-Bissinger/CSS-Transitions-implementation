@@ -5,7 +5,7 @@ const router = express.Router()
 
 const kontoSchema = new mongoose.Schema({
 	kontonummer: String,
-	name: String,
+	/*name: String,*/
 	kontostand: Number,
 
 	/* my app */property_trans1: String,

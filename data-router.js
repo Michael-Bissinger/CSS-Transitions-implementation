@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 	res.status(200)
 		.type("json")
 		.send({
-			"name": getRandomName(),
+			/*"name": getRandomName(),*/
 			"wert": Math.floor(Math.random() * 1000),
 	
 			
