@@ -41,7 +41,7 @@ function loadTransition() {
 	delay_trans2.value = konto.delay_trans2;
 	delay_trans3.value = konto.delay_trans3;
 
-	alert("Ladevorgang abgeschlossen! " + konto.property_trans1)
+	alert("Ladevorgang abgeschlossen!")
 
 		})
 		.catch(err => zeigeFehler(err))
@@ -239,6 +239,7 @@ function saveTransition(evt) {
 		.then(res => ladeKonten())
 		.catch(err => zeigeFehler(err))
 
+		alert("Speichervorgang abgeschlossen!")
 
 	evt.preventDefault();
 }
