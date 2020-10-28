@@ -5,8 +5,6 @@ const router = express.Router()
 
 const kontoSchema = new mongoose.Schema({
 	kontonummer: String,
-	/*name: String,
-	kontostand: Number,*/
 
 	property_trans1: String,
 	property_trans2: String,
@@ -25,7 +23,7 @@ const kontoSchema = new mongoose.Schema({
 	delay_trans3: Number
 });
 
-const Konto = mongoose.model('Konto', kontoSchema);
+const Transition = mongoose.model('Transition', kontoSchema);
 
 mongoose.connect('mongodb://admin:secret@localhost/', { useNewUrlParser: true });
 const db = mongoose.connection;
@@ -33,7 +31,7 @@ db.on('error', err => console.error('connection error:', err))
 db.once('open', () => console.log('Connected'))
 
 router.get('/', (req, res) => {
-	Konto.find()
+	Transition.find()
 		.then(data => res.status(200).type("json").send(data.map(el => el.kontonummer)))
 		.catch(err => res.status(500).send(err))
 })
@@ -41,26 +39,24 @@ router.get('/', (req, res) => {
 router.get('/:kontonummer/', (req, res) => {
 	const kontonummer = req.params.kontonummer
 
-	Konto.findOne({ "kontonummer": kontonummer })
+	Transition.findOne({ "kontonummer": kontonummer })
 		.then(transition => res.status(200).type("json").send(transition))
-		.catch(err => res.sendStatus(404).send("Konto nicht gefunden"))
+		.catch(err => res.sendStatus(404).send("Transition nicht gefunden"))
 })
 
 router.get('/:kontonummer/kontostand/', (req, res) => {
 	const kontonummer = req.params.kontonummer
 
-	Konto.findOne({ "kontonummer": kontonummer })
+	Transition.findOne({ "kontonummer": kontonummer })
 		.then(transition => res.send("" + transition.kontostand).end())
-		.catch(err => res.sendStatus(404).send("Konto nicht gefunden").end())
+		.catch(err => res.sendStatus(404).send("Transition nicht gefunden").end())
 })
 
 
 router.post('/', (req, res) => {
 	const kontonummer = 1
-	const transition = new Konto({
-		"kontonummer": kontonummer,
-		
-		/*"kontostand": 100,*/
+	const transition = new Transition({
+	"kontonummer": kontonummer,		
 	"property_trans1": req.body.Property_trans1,
 	"property_trans2": req.body.Property_trans2,
 	"property_trans3": req.body.Property_trans3,
@@ -83,9 +79,9 @@ router.post('/', (req, res) => {
 router.delete('/:kontonummer', (req, res) => {
 	const kontonummer = req.params.kontonummer
 
-	Konto.deleteOne({ "kontonummer": kontonummer })
+	Transition.deleteOne({ "kontonummer": kontonummer })
 		.then(transition => res.end("Ok"))
-		.catch(err => res.sendStatus(404).end("Konto nicht gefunden"))
+		.catch(err => res.sendStatus(404).end("Transition nicht gefunden"))
 })
 
 module.exports = router
