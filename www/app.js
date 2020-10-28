@@ -6,7 +6,7 @@ window.addEventListener('load', evt => {
 function loadTransition() {
 	fetch('transitions/' + 1 + '/')
 	.then(res => res.json())
-		.then(konto => {
+		.then(transition => {
 
 	const property_trans1 = document.getElementById("property_trans1")
 	const property_trans2 = document.getElementById("property_trans2")
@@ -28,21 +28,21 @@ function loadTransition() {
 	const delay_trans3 = document.getElementById("delay_trans3")
 	console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
 
-	property_trans1.value = konto.property_trans1;
-	property_trans2.value = konto.property_trans2;
-	property_trans3.value = konto.property_trans3;		
+	property_trans1.value = transition.property_trans1;
+	property_trans2.value = transition.property_trans2;
+	property_trans3.value = transition.property_trans3;		
 
-	duration_trans1.value = konto.duration_trans1;
-	duration_trans2.value = konto.duration_trans2;
-	duration_trans3.value = konto.duration_trans3;
+	duration_trans1.value = transition.duration_trans1;
+	duration_trans2.value = transition.duration_trans2;
+	duration_trans3.value = transition.duration_trans3;
 	
-	timing_trans1.value = konto.timing_trans1;
-	timing_trans2.value = konto.timing_trans2;
-	timing_trans3.value = konto.timing_trans3;
+	timing_trans1.value = transition.timing_trans1;
+	timing_trans2.value = transition.timing_trans2;
+	timing_trans3.value = transition.timing_trans3;
 
-	delay_trans1.value = konto.delay_trans1;
-	delay_trans2.value = konto.delay_trans2;
-	delay_trans3.value = konto.delay_trans3;
+	delay_trans1.value = transition.delay_trans1;
+	delay_trans2.value = transition.delay_trans2;
+	delay_trans3.value = transition.delay_trans3;
 
 	alert("Ladevorgang abgeschlossen!")
 

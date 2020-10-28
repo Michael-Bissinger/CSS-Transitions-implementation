@@ -42,7 +42,7 @@ router.get('/:kontonummer/', (req, res) => {
 	const kontonummer = req.params.kontonummer
 
 	Konto.findOne({ "kontonummer": kontonummer })
-		.then(konto => res.status(200).type("json").send(konto))
+		.then(transition => res.status(200).type("json").send(transition))
 		.catch(err => res.sendStatus(404).send("Konto nicht gefunden"))
 })
 
@@ -50,7 +50,7 @@ router.get('/:kontonummer/kontostand/', (req, res) => {
 	const kontonummer = req.params.kontonummer
 
 	Konto.findOne({ "kontonummer": kontonummer })
-		.then(konto => res.send("" + konto.kontostand).end())
+		.then(transition => res.send("" + transition.kontostand).end())
 		.catch(err => res.sendStatus(404).send("Konto nicht gefunden").end())
 })
 
@@ -58,7 +58,7 @@ router.get('/:kontonummer/kontostand/', (req, res) => {
 router.post('/', (req, res) => {
 	/*const kontonummer = "" + Math.floor(10000000 * Math.random())*/
 	/* my app */ const kontonummer = 1
-	const konto = new Konto({
+	const transition = new Konto({
 		"kontonummer": kontonummer,
 		/*"name": req.body.Name,*/
 		"kontostand": 100,
@@ -76,7 +76,7 @@ router.post('/', (req, res) => {
 	/* my app */	"delay_trans3": req.body.Delay_trans3
 	})
 
-	konto.save()
+	transition.save()
 		.then(data => res.redirect("" + kontonummer + "/").end())
 		.catch(err => res.status(500).send("Hat nicht geklappt"))
 })
@@ -85,7 +85,7 @@ router.delete('/:kontonummer', (req, res) => {
 	const kontonummer = req.params.kontonummer
 
 	Konto.deleteOne({ "kontonummer": kontonummer })
-		.then(konto => res.end("Ok"))
+		.then(transition => res.end("Ok"))
 		.catch(err => res.sendStatus(404).end("Konto nicht gefunden"))
 })
 
