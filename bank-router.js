@@ -5,24 +5,24 @@ const router = express.Router()
 
 const kontoSchema = new mongoose.Schema({
 	kontonummer: String,
-	name: String,
-	kontostand: Number,
+	/*name: String,
+	kontostand: Number,*/
 
-	/* my app */property_trans1: String,
-	/* my app */property_trans2: String,
-	/* my app */property_trans3: String,
+	property_trans1: String,
+	property_trans2: String,
+	property_trans3: String,
 
-	/* my app */duration_trans1: Number,
-	/* my app */duration_trans2: Number,
-	/* my app */duration_trans3: Number,
+	duration_trans1: Number,
+	duration_trans2: Number,
+	duration_trans3: Number,
 
-	/* my app */timing_trans1: String,
-	/* my app */timing_trans2: String,
-	/* my app */timing_trans3: String,
+	timing_trans1: String,
+	timing_trans2: String,
+	timing_trans3: String,
 
-	/* my app */delay_trans1: Number,
-	/* my app */delay_trans2: Number,
-	/* my app */delay_trans3: Number
+	delay_trans1: Number,
+	delay_trans2: Number,
+	delay_trans3: Number
 });
 
 const Konto = mongoose.model('Konto', kontoSchema);
@@ -56,24 +56,23 @@ router.get('/:kontonummer/kontostand/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-	/*const kontonummer = "" + Math.floor(10000000 * Math.random())*/
-	/* my app */ const kontonummer = 1
+	const kontonummer = 1
 	const transition = new Konto({
 		"kontonummer": kontonummer,
-		/*"name": req.body.Name,*/
-		"kontostand": 100,
-	/* my app */	"property_trans1": req.body.Property_trans1,
-	/* my app */	"property_trans2": req.body.Property_trans2,
-	/* my app */	"property_trans3": req.body.Property_trans3,
-	/* my app */	"duration_trans1": req.body.Duration_trans1,
-	/* my app */	"duration_trans2": req.body.Duration_trans2,
-	/* my app */	"duration_trans3": req.body.Duration_trans3,
-	/* my app */	"timing_trans1": req.body.Timing_trans1,
-	/* my app */	"timing_trans2": req.body.Timing_trans2,
-	/* my app */	"timing_trans3": req.body.Timing_trans3,
-	/* my app */	"delay_trans1": req.body.Delay_trans1,
-	/* my app */	"delay_trans2": req.body.Delay_trans2,
-	/* my app */	"delay_trans3": req.body.Delay_trans3
+		
+		/*"kontostand": 100,*/
+	"property_trans1": req.body.Property_trans1,
+	"property_trans2": req.body.Property_trans2,
+	"property_trans3": req.body.Property_trans3,
+	"duration_trans1": req.body.Duration_trans1,
+	"duration_trans2": req.body.Duration_trans2,
+	"duration_trans3": req.body.Duration_trans3,
+	"timing_trans1": req.body.Timing_trans1,
+	"timing_trans2": req.body.Timing_trans2,
+	"timing_trans3": req.body.Timing_trans3,
+	"delay_trans1": req.body.Delay_trans1,
+	"delay_trans2": req.body.Delay_trans2,
+	"delay_trans3": req.body.Delay_trans3
 	})
 
 	transition.save()
