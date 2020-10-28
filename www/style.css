@@ -82,17 +82,9 @@ a:active {
 .demo {
     width: 200px;
     height: 100px;
-    /*margin: auto;*/
     margin: auto;
     padding: 10px;
     border: 1px solid lightgrey;
-
-
-    /*background-color: red;*/
-    /*transition-duration: 1000ms;*/
-    /*transition-property: all;*/
-    /*transition-duration: 500ms;*/
-    /*transition-timing-function: ease;*/
 
     
 }
@@ -108,13 +100,9 @@ a:active {
   }  
 
 .demo:hover {
-    /*background-color: blue;*/
     width: 500px;
     transform: rotate(10deg);
     border-radius: 50px;
-    /*margin-right: 20em;
-    margin-left: 20em;
-    /*transform: rotate(45deg);*/
 }
 
 /* ------- SINGLEPAGEAPPLICATION STYLE ------- */
