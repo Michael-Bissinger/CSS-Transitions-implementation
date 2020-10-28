@@ -14,9 +14,6 @@
             applyStyle("3");
           })
           
-          alert("geladen!");
-       
-
 
           /* ------------ ANWENDEN ------------ */
           function applyStyle(trans_number) {
