@@ -22,7 +22,11 @@ function loadTransition() {
 	const delay_trans1 = document.getElementById("delay_trans1")
 	const delay_trans2 = document.getElementById("delay_trans2")
 	const delay_trans3 = document.getElementById("delay_trans3")
+<<<<<<< HEAD
+	console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
+=======
 	/console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
+>>>>>>> c6d06827e8bfd8b85bf8396e443fdedaf68d0311
 
 	property_trans1.value = konto.property_trans1;
 	property_trans2.value = konto.property_trans2;
@@ -46,6 +50,20 @@ function loadTransition() {
 		.catch(err => zeigeFehler(err))
 }
 
+<<<<<<< HEAD
+function zeigeFehler(fehlertext) {
+	const err_out = document.getElementById('error_out')
+	const div = document.createElement('div')
+	div.classList.add('alert')
+	div.classList.add('alert-danger')
+	div.setAttribute('role', 'alert')
+	div.innerText = fehlertext
+	err_out.appendChild(div)
+
+	setTimeout(() => err_out.removeChild(div), 5000)
+}
+=======
+>>>>>>> c6d06827e8bfd8b85bf8396e443fdedaf68d0311
 
 function saveTransition(evt) {
 
@@ -96,7 +114,10 @@ function saveTransition(evt) {
 			"Content-Type": "application/json"
 		}
 	})
+<<<<<<< HEAD
+=======
 		
+>>>>>>> c6d06827e8bfd8b85bf8396e443fdedaf68d0311
 		.catch(err => zeigeFehler(err))
 
 		alert("Speichervorgang abgeschlossen!")
@@ -104,6 +125,8 @@ function saveTransition(evt) {
 	evt.preventDefault();
 }
 
+<<<<<<< HEAD
+=======
 function zeigeFehler(fehlertext) {
 	const err_out = document.getElementById('error_out')
 	const div = document.createElement('div')
@@ -115,6 +138,7 @@ function zeigeFehler(fehlertext) {
 
 	setTimeout(() => err_out.removeChild(div), 5000)
 }
+>>>>>>> c6d06827e8bfd8b85bf8396e443fdedaf68d0311
 
 
 window.addEventListener('load', evt => {
