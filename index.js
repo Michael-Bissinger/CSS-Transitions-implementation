@@ -12,6 +12,6 @@ app.use('/lib', express.static('node_modules'))
  
 app.use('/users/', userRouter)
 app.use('/data', dataRouter)
-app.use('/konten', bankRouter)
+app.use('/transitions', bankRouter)
 
 app.listen(port, () => console.log(`Open http://localhost:${port}`))

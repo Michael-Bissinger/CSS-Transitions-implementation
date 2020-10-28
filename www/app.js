@@ -4,7 +4,7 @@ window.addEventListener('load', evt => {
 })
 
 function loadTransition() {
-	fetch('konten/' + 1 + '/')
+	fetch('transitions/' + 1 + '/')
 	.then(res => res.json())
 		.then(konto => {
 
@@ -74,13 +74,13 @@ function saveTransition(evt) {
 	console.log("delay: " + delay_trans1 + delay_trans2 + delay_trans3)
 
 	/* Erst konto 1 löschen, dann geht's weiter */
-	fetch('konten/' + 1 + '/', { method: 'DELETE' })
+	fetch('transitions/' + 1 + '/', { method: 'DELETE' })
 	.then(res => {   })
 	.catch(err => zeigeFehler(err))
 	
 	
 	/* Jetzt konto 1 neu erstellen */	
-	fetch('konten/', {
+	fetch('transitions/', {
 		method: 'POST',
 		body: JSON.stringify({ 		
 		"Property_trans1": property_trans1.value,
